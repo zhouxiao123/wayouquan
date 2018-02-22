@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<view class="index-title">
+  <text style="color:#fff;font-size:33rpx;margin:20rpx">挖友圈</text>
+</view>
+<swiper indicator-dots="true"
+  autoplay="true" interval="3000" duration="500" style="height:480rpx">
+  
+    <!--<swiper-item wx:for="{{adv.adv2}}">
+      <image data-id="{{item.id}}" data-type="{{item.linktype}}" data-link="{{item.link}}" catchtap='changePage' src="https://wxsign.sczk.com.cn/wxsczkappback/img/{{item.picurl}}" class="slide-image" style="width:100%;" mode="widthFix"/>
+    </swiper-item>-->
+
+    <swiper-item >
+      <image src="https://app.wayouquan.com/newexcavator/img/hC/dz/1431321919845.jpg" class="slide-image" style="width:100%;" mode="widthFix"/>
+    </swiper-item>
+
+    <swiper-item >
+      <image src="https://app.wayouquan.com/newexcavator/img/k0/Qo/1431321930081.jpg" class="slide-image" style="width:100%;" mode="widthFix"/>
+    </swiper-item>
+
+
+  
+  </swiper>
+  <view class="tag-list">
+    <view class="tag-view {{tag==0?'on t-on':''}}" data-current="0" bindtap="swichNav" >
+      二手挖掘机
+    </view> 
+    <view class="tag-view {{tag==1?'on t-on':''}}" data-current="1" bindtap="swichNav" >
+      二手装载机
+    </view>
+</view>
+
+<view class="tag-list2" style="display:{{tag==0?'flex':'none'}}">
+    <view class="tag-view2"  >
+      挖掘机
+    </view> 
+    <view class="tag-view2" catchtap='more'>
+      更多
+    </view>
+</view>
+
+<view class="tag-list2" style="display:{{tag==1?'flex':'none'}}">
+    <view class="tag-view2"  >
+      装载机
+    </view> 
+    <view class="tag-view2"  catchtap='more'>
+      更多
+    </view>
+</view>
+
+<view style="margin-top:40rpx">
+  <view class="index-list" >
+      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
+      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
+  </view>
+
+  <view class="index-list" >
+      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
+      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
+  </view>
+
+  <view class="index-list" >
+      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
+      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
+  </view>
+
+  <view class="index-list" >
+      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
+      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
+  </view>
+
+
+</view>
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+</view>
