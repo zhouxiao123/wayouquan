@@ -8,20 +8,24 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    tag:0
+    tag:0,
+    adv:[],
+    ms1:[],
+    ms2:[]
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.request({
+    /*wx.request({
       url: 'https://app.wayouquan.com', //仅为示例，并非真实的接口地址
 
       
       success: function (res) {
         console.log(res.data)
       }
-    })
+    })*/
   },
   onLoad: function () {
+    var that = this
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -48,6 +52,33 @@ Page({
         }
       })
     }
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/mobile',
+      data: {
+
+      },
+      success: function (res) {
+        //console.log(res.data)
+        for (var i in res.data.ms1){
+          res.data.ms1[i].cover_path = res.data.ms1[i].cover_path.replace('.', '_S.')
+        }
+        for (var i in res.data.ms2) {
+          res.data.ms2[i].cover_path = res.data.ms2[i].cover_path.replace('.', '_S.')
+        }
+        that.setData({
+          adv: res.data.advertisement,
+          ms1: res.data.ms1,
+          ms2: res.data.ms2
+        })
+
+        wx.hideLoading()
+      }
+    })
+
   },
   getUserInfo: function(e) {
     console.log(e)

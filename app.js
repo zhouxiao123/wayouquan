@@ -37,6 +37,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    /*正式服务器路径*/
+    baseUrl: "https://app.wayouquan.com/newexcavator/"
   }
 })

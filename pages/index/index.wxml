@@ -9,13 +9,11 @@
       <image data-id="{{item.id}}" data-type="{{item.linktype}}" data-link="{{item.link}}" catchtap='changePage' src="https://wxsign.sczk.com.cn/wxsczkappback/img/{{item.picurl}}" class="slide-image" style="width:100%;" mode="widthFix"/>
     </swiper-item>-->
 
-    <swiper-item >
-      <image src="https://app.wayouquan.com/newexcavator/img/hC/dz/1431321919845.jpg" class="slide-image" style="width:100%;" mode="widthFix"/>
+    <swiper-item wx:for="{{adv}}">
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.img_path}}" class="slide-image" style="width:100%;" mode="widthFix"/>
     </swiper-item>
 
-    <swiper-item >
-      <image src="https://app.wayouquan.com/newexcavator/img/k0/Qo/1431321930081.jpg" class="slide-image" style="width:100%;" mode="widthFix"/>
-    </swiper-item>
+   
 
 
   
@@ -47,35 +45,31 @@
     </view>
 </view>
 
-<view style="margin-top:40rpx">
-  <view class="index-list" >
-      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
-      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
-      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
+<view style="margin-top:40rpx;display:{{tag==0?'block':'none'}}">
+  <view class="index-list" wx:for="{{ms1}}">
+      <view><image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">{{item.p_name}}<text style="margin-left:10rpx;color:#ff7f21">{{item.price}}万</text></view>
   </view>
 
-  <view class="index-list" >
-      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
-      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
-      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
-  </view>
-
-  <view class="index-list" >
-      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
-      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
-      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
-  </view>
-
-  <view class="index-list" >
-      <view><image src="https://app.wayouquan.com/newexcavator/img/cO/8j/DA975EE6E7D4CB27C94ABEFDB02335F8_o_1c64o546q16ci19da1s4mfg1t3pd_S.jpeg" style="width:180rpx;height:136rpx" ></image></view>
-      <view style="width:180rpx;height:40rpx;font-size:32rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold;       word-break:break-all;white-space:nowrap">小松_PC220-6</view>
-      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">湖北<text style="color:#ff7f21">28.0万</text></view>
-  </view>
+  
 
 
 </view>
 
-<view class="container">
+<view style="margin-top:40rpx;display:{{tag==1?'block':'none'}}">
+  <view class="index-list" wx:for="{{ms2}}">
+      <view><image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
+      <view style="text-align:center;width:180rpx;height:40rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">{{item.p_name}}<text style="margin-left:10rpx;color:#ff7f21">{{item.price}}万</text></view>
+  </view>
+
+  
+
+
+</view>
+
+<!--<view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -87,4 +81,4 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 
-</view>
+</view>-->
