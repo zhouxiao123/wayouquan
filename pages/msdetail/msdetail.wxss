@@ -1,0 +1,94 @@
+/* pages/msdetail/msdetail.wxss */
+.detail-title{
+  height:60rpx;
+  background:#1da1ff;
+  display:flex;
+  justify-content: space-between;
+  align-items: center
+}
+.title{
+  font-size:28rpx;
+  font-family:微软雅黑;
+  color:#777;
+  font-weight:bold;
+  background:#f3f3f3;
+  height:60rpx;
+  display:flex;
+  align-items: center
+}
+.foot{
+      background: #5fb7f6;
+    position: fixed;
+    bottom: 0;
+    height:80rpx;
+    width:100%
+}
+
+.foot-text-l{
+  color: #fff;
+    font-size:28rpx;
+  font-family:微软雅黑;
+  line-height:80rpx;
+  margin-left:20rpx
+}
+
+.makecall{
+      
+display:inline-block;
+
+margin-right:20rpx
+}
+.df{
+  display:flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.call-text{
+  position:absolute;
+  font-weight: bold;
+  color: #24fc7d;
+  font-size:24rpx;
+  font-family:微软雅黑;
+  line-height:70rpx;
+  text-align: right;
+  display:inline-block;
+  width:150rpx
+}
+
+.tb{
+      
+    color: #888686;
+     font-family:微软雅黑;
+         border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    width:650rpx;
+    margin:0 auto;
+    text-align:center
+
+}
+.tr{
+  display:flex;
+  justify-content: center;
+  align-items: center;  
+      border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+  min-height:40rpx
+}
+.td-l{
+display:flex;
+width:325rpx;
+    font-size: 26rpx;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+  justify-content: center;
+  align-items: center;  
+  height:100%
+}
+.td-r{
+  display:flex;
+  width:325rpx;
+      font-size: 26rpx;
+      justify-content: center;
+  align-items: center;  
+}

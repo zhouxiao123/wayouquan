@@ -104,5 +104,10 @@ Page({
     wx.navigateTo({
       url: '../more/more',
     })
+  },
+  toDetail:function(e){
+    wx.navigateTo({
+      url: '../msdetail/msdetail?type=' + e.currentTarget.dataset.type + "&id=" + e.currentTarget.dataset.id,
+    })
   }
 })
