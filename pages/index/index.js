@@ -100,9 +100,9 @@ Page({
 
 
   },
-  more : function(){
+  more : function(e){
     wx.navigateTo({
-      url: '../more/more',
+      url: '../more/more?type='+e.currentTarget.dataset.type,
     })
   },
   toDetail:function(e){

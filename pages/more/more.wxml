@@ -7,7 +7,7 @@
 </view>
 
 
-  <view style="text-align:center;font-size:32rpx;font-family:微软雅黑;color:#777;font-weight:bold;margin-top:20rpx">挖掘机   </view>
+  <view style="text-align:center;font-size:32rpx;font-family:微软雅黑;color:#777;font-weight:bold;margin-top:20rpx">{{type_name}}   </view>
 
   <view class="search">
     <input style="font-family:'微软雅黑'; color:#666;display:inline-block"></input>
@@ -16,24 +16,24 @@
 
   <view class="tag-list">
     <view class="tag-view {{tag==0?'on t-on':''}}" data-current="0" catchtap="swichNav" >
-      <picker name="diyu" bindchange="bindDiYuChange"  range="{{test}}">
+      <picker name="type" bindchange="bindTypeChange"  range="{{typelist}}">
         <view class="picker radio-text">
-        全部机械
+        {{type_name}}
         </view>
       </picker>
   
     </view> 
     <view class="tag-view {{tag==1?'on t-on':''}}" data-current="1" catchtap="swichNav" >
-      <picker name="biaoqian" bindchange="bindBiaoQianChange"  range="{{test}}">
+      <picker name="city" range-key="name" bindchange="bindCityChange"  range="{{city}}">
         <view class="picker radio-text">
-        全部地区
+        {{city_name}}
         </view>
       </picker>
     </view>
     <view class="tag-view {{tag==2?'on t-on':''}}" data-current="2" catchtap="swichNav" >
-      <picker name="leixing" bindchange="bindLeiXingChange"  range="{{test}}">
+      <picker name="brand" range-key="name" bindchange="bindBrandChange"  range="{{brand}}" >
         <view class="picker radio-text">
-        全部品牌
+        {{brand_name}}
         </view>
       </picker>
     </view>
@@ -45,5 +45,32 @@
     <text style="margin-left:20rpx">挖掘机</text>
   </view>
 
+  <view style="background:#fff;margin-top:20rpx">
+
+  <view wx:for="{{data.ms}}" data-id="{{item.id}}" catchtap='toDetail' style="border-bottom:1px solid #999;padding-top:20rpx;">
+    <view class="list-content">
+      <!--<a href="/newexcavator/mobile/detail?id=2282#mp.weixin.qq.com">-->
+      <view style="margin-left:50rpx;width:200rpx">
+        <image style="width:200rpx;height:140rpx" src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}"/>
+        </view>
+            <view style="margin-left:30rpx;word-break:break-all;width:470rpx" class="listR1">
+              <text class="h4">{{item.brand_name+'_'+item.version_name+'【'+item.buy_date+'年】'}}</text>
+              <text class="time">{{item.used_time}}小时</text>
+              <text class="price">{{item.price}}万</text>              
+              <text class="address">{{item.p_name}} {{item.c_name}}</text>
+              </view>
+            <!--<div class="clr"></div>-->
+    <!--</a>-->
+  </view>
+              <view class="time0">
+               <text>{{item.create_time}}</text>
+            </view>
+</view>
+
+
+
+
+
+  </view>
 
 </view>

@@ -9,10 +9,10 @@
 
   <view class="title">
     <text style="margin-left:20rpx">挖友圈</text>
-    <text style="margin-left:20rpx">></text>
-    <text style="margin-left:20rpx">挖掘机</text>
-    <text style="margin-left:20rpx">></text>
-    <text style="margin-left:20rpx">北京海淀区 现代_R55-7S</text>
+    <text style="margin-left:10rpx">></text>
+    <text style="margin-left:10rpx">{{m.type_name}}</text>
+    <text style="margin-left:10rpx">></text>
+    <text style="margin-left:10rpx">{{m.p_name+m.c_name+' '+m.brand_name+'_'+m.version_name}}</text>
   </view>
 
 <view >
@@ -20,59 +20,82 @@
     <view class="tb">
       <view class="tr">
         <view class="td-l">工作小时数(h)：</view>
-        <view class="td-r">12000</view>
+        <view class="td-r">{{m.used_time}}</view>
       </view>
       <view class="tr">
         <view class="td-l">原始发票：</view>
-        <view class="td-r">有</view>
+        <view class="td-r">{{m.receipt==1?'有':'无'}}</view>
       </view>
       <view class="tr">
         <view class="td-l">原车用途：</view>
-        <view class="td-r">自用设备</view>
+        <view class="td-r" wx:if="{{m.use==0}}">自用设备</view>
+        <view class="td-r" wx:if="{{m.use==1}}">租赁设备</view>
+        <view class="td-r" wx:if="{{m.use==2}}">用途不确定</view>
+        <view class="td-r" wx:if="{{m.use==3}}">厂家测试机</view>
       </view>
       <view class="tr">
         <view class="td-l">购买日期：</view>
-        <view class="td-r">2010年05月20日 </view>
+        <view class="td-r">{{m.buy_date}}</view>
       </view>
       <view class="tr">
         <view class="td-l">发布日期：</view>
-        <view class="td-r">2018年02月26日  11:35:06</view>
+        <view class="td-r">{{m.create_time}}</view>
       </view>
       <view class="tr">
         <view class="td-l">合格证：</view>
-        <view class="td-r">无</view>
+        <view class="td-r">{{m.qualified==1?'有':'无'}}</view>
       </view>
       <view class="tr">
         <view class="td-l">车况：</view>
-        <view class="td-r">一般</view>
+        <view class="td-r" wx:if="{{m.old_level==0}}">较好</view>
+        <view class="td-r" wx:if="{{m.old_level==1}}">类似新车</view>
+        <view class="td-r" wx:if="{{m.old_level==2}}">一般</view>
+        <view class="td-r" wx:if="{{m.old_level==3}}">良好</view>
       </view>
       <view class="tr">
         <view class="td-l">当前状态：</view>
-        <view class="td-r">停用待售xcvxcvxcvcxvxcvxcvx</view>
+        <view class="td-r" wx:if="{{m.current_status==0}}">停用待售</view>
+        <view class="td-r" wx:if="{{m.current_status==1}}">正在施工</view>
+        <view class="td-r" wx:if="{{m.current_status==2}}">不清楚</view>        
       </view>
       <view class="tr">
         <view class="td-l">序列号：</view>
-        <view class="td-r"></view>
+        <view class="td-r">{{m.code_no}}</view>
       </view>
       <view class="tr">
         <view class="td-l">产品报价：</view>
-        <view class="td-r">9.0万</view>
+        <view class="td-r">{{m.price}}万</view>
       </view>
       <view class="tr">
         <view class="td-l">机主描述：</view>
-        <view class="td-r">急用钱，特出售</view>
+        <view class="td-r">{{m.description}}</view>
       </view>
-      <view class="tr">
+      <view class="tr" wx:if="{{type=='own'}}">
+        <view class="td-l">当前状态：</view>
+        <view class="td-r" wx:if="{{m.verify==0}}">待审核</view>
+        <view class="td-r" wx:if="{{m.verify==1}}">审核通过</view>
+        <view class="td-r" wx:if="{{m.verify==2}}">审核不通过</view>
+      </view>
+      <view class="tr" wx:if="{{m.verify==1}}">
         <view class="td-l">上架状态：</view>
-        <view class="td-r">上架</view>
+        <view class="td-r" wx:if="{{m.close==0}}">上架</view>
+        <view class="td-r" wx:if="{{m.close==1}}">下架</view>
+        <view class="td-r" wx:if="{{m.close==2}}">已出售</view>
       </view>                                                 
     </view> 
 
-    <image src="https://app.wayouquan.com/newexcavator/img/M6/wF/08BBEC8AAE44C72A2886E802200281B2_o_1c782pg7bk7l1o1mblud9o1nt41a_S.jpg" style='width:650rpx;margin:20rpx 50rpx'></image>
-        <image src="https://app.wayouquan.com/newexcavator/img/M6/wF/08BBEC8AAE44C72A2886E802200281B2_o_1c782pg7bk7l1o1mblud9o1nt41a_S.jpg" style='width:650rpx;margin:20rpx 50rpx'></image>
-            <image src="https://app.wayouquan.com/newexcavator/img/M6/wF/08BBEC8AAE44C72A2886E802200281B2_o_1c782pg7bk7l1o1mblud9o1nt41a_S.jpg" style='width:650rpx;margin:20rpx 50rpx'></image>
-                <image src="https://app.wayouquan.com/newexcavator/img/M6/wF/08BBEC8AAE44C72A2886E802200281B2_o_1c782pg7bk7l1o1mblud9o1nt41a_S.jpg" style='width:650rpx;margin:20rpx 50rpx'></image>
-                    <image src="https://app.wayouquan.com/newexcavator/img/M6/wF/08BBEC8AAE44C72A2886E802200281B2_o_1c782pg7bk7l1o1mblud9o1nt41a_S.jpg" style='width:650rpx;margin:20rpx 50rpx'></image>
+    <image   wx:for="{{m.mp}}" src="https://app.wayouquan.com/newexcavator/img/{{item.path}}" style='width:650rpx;margin:20rpx 50rpx'></image>
+
+<view wx:if="{{adv!=null}}" style="margin-top:50px">
+  <view style="text-align:center;margin:5px 20px auto;width:90%">
+     <text th:text="{{adv.description}}" ></text>
+  </view>
+  <!--<a target="_blank" th:href="${#strings.isEmpty(adv.img_url)?'javascript:void(0)':#strings.startsWith(adv.img_url,'http:')? adv.img_url:'http://' + adv.img_url}">
+  -->
+     <image style='width:650rpx;margin:20rpx 50rpx' src="https://app.wayouquan.com/newexcavator/img/{{adv.img_path}}" mode='widthFix'/>
+  <!--</a>-->
+</view>    
+        
 
 </view>
 
@@ -81,7 +104,7 @@
 <view class="foot">
 <view class="df">
     <view style="display:inline-block">
-    <text class="foot-text-l">杨庆伟13671352528(北京  海淀区)</text>
+    <text class="foot-text-l">{{m.link_name+m.phone+'('+m.p_name+'  '+m.c_name+')'}}</text>
     </view>
     <view class="makecall" catchtap='makePhone'>
     <text class="call-text">拨打电话</text>

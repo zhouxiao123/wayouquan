@@ -31,7 +31,7 @@
     <view class="tag-view2"  >
       挖掘机
     </view> 
-    <view class="tag-view2" catchtap='more'>
+    <view class="tag-view2" data-type="1" catchtap='more'>
       更多
     </view>
 </view>
@@ -40,7 +40,7 @@
     <view class="tag-view2"  >
       装载机
     </view> 
-    <view class="tag-view2"  catchtap='more'>
+    <view class="tag-view2" data-type="2"  catchtap='more'>
       更多
     </view>
 </view>

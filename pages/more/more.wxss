@@ -59,3 +59,41 @@
 .t-on{
   color:#59c9b9;
 }
+
+.list-content{
+   display:flex;
+   
+}
+
+.listR1{
+  font-family: 微软雅黑;
+  
+}
+.h4{
+  color: #676565;
+  font-size:28rpx;
+  font-weight: bold;
+  display:block;
+}
+.time{
+  color: #9b9b9b;
+  font-size:28rpx;
+}
+.price{
+  color: #ff7f21;
+  font-size:28rpx;
+  margin-top:5rpx;
+margin-left:30rpx
+}
+.address{
+  color: #9b9b9b;
+  font-size:28rpx;
+  margin-top:5rpx;
+  display:block
+}
+.time0{
+  text-align: right;
+  color: #666;
+  font-size:24rpx;
+  margin-right:20rpx
+}
