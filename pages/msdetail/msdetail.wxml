@@ -1,9 +1,9 @@
 <!--pages/msdetail/msdetail.wxml-->
 <view style="margin-bottom:100rpx">
 <view class="detail-title">
-<image src="https://app.wayouquan.com/newexcavator/assets/images/home.png" style="width:40rpx;margin-left:20rpx" mode='widthFix'></image>
+<image src="https://app.wayouquan.com/newexcavator/assets/images/home.png" style="width:40rpx;margin-left:20rpx" mode='widthFix' catchtap='toHome'></image>
   <text style="color:#fff;font-size:33rpx;margin:20rpx">挖友圈</text>
-  <image src="https://app.wayouquan.com/newexcavator/assets/images/header_r.png" style="width:40rpx;margin-right:20rpx" mode='widthFix'></image>
+  <image src="https://app.wayouquan.com/newexcavator/assets/images/header_r.png" style="width:40rpx;margin-right:20rpx" mode='widthFix' catchtap='toPerson'></image>
 </view>
 
 

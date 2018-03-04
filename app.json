@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/more/more",
-    "pages/msdetail/msdetail"
+    "pages/msdetail/msdetail",
+    "pages/home/home",
+    "pages/person/person"
   ],
   "window": {
     "backgroundTextStyle": "light",

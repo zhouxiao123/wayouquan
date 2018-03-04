@@ -1,0 +1,97 @@
+/* pages/person/person.wxss */
+page{
+  background: #EbEbEb;
+}
+.person-top{
+  margin: 10rpx;
+    background: #fff;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.person-top-right{
+  display: -webkit-flex;
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left:40rpx
+}
+
+.text-one{
+font-family: "微软雅黑";
+  font-size: 28rpx;
+    color: #4090c0;
+}
+
+.text-two{
+  font-size: 28rpx;
+    color: red;
+font-family: "微软雅黑"
+}
+
+.text-three{
+  font-size: 24rpx;
+font-family: "微软雅黑";
+margin-right:20rpx;
+text-decoration:underline
+}
+
+.person-menue{
+
+}
+
+.menue{
+      border: solid 1px #F2F2F2;
+    border-radius: 10rpx 10rpx 0rpx 0rpx;
+    margin-top: 60rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    padding: 20rpx;
+    height: 50rpx;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.menue-center{
+      border: solid 1px #F2F2F2;
+    border-radius: 10rpx 10rpx 10rpx 10rpx;
+    margin-top: 6rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    padding: 20rpx;
+    height: 50rpx;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.menue-bottom{
+      border: solid 1px #F2F2F2;
+    border-radius: 0rpx 0rpx 10rpx 10rpx;
+    margin-top: 6rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    padding: 20rpx;
+    height: 50rpx;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.menue-text{
+      font-size: 32rpx;
+    margin-left: 20rpx;
+    color: #888;
+}
+.menue-icon{
+    margin-right: 40rpx;
+    width:40rpx
+}

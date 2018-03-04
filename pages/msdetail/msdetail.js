@@ -102,6 +102,15 @@ Page({
     wx.makePhoneCall({
       phoneNumber: that.data.m.phone,
     })
+  },
+  toHome: function () {
+    wx.reLaunch({
+      url: '/pages/home/home',
+    })
+  }, toPerson:function(){
+    wx.navigateTo({
+      url: '/pages/person/person',
+    })
   }
 })
 function transDate(mescStr,flag) {
