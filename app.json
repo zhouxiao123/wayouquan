@@ -5,7 +5,8 @@
     "pages/more/more",
     "pages/msdetail/msdetail",
     "pages/home/home",
-    "pages/person/person"
+    "pages/person/person",
+    "pages/add_excavator/add_excavator"
   ],
   "window": {
     "backgroundTextStyle": "light",

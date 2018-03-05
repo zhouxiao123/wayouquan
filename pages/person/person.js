@@ -1,10 +1,13 @@
 // pages/person/person.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    disflag1:'none',
+    disflag2:'none'
   
   },
 
@@ -57,10 +60,30 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+ downMenue:function(e){
+   if(e.currentTarget.dataset.type=="1"){
+    if(this.data.disflag1=='none')
+      this.setData({
+        disflag1:'block'
+      })
+    else
+      this.setData({
+         disflag1: 'none'
+      })
+   } else {
+     if (this.data.disflag2 == 'none')
+       this.setData({
+         disflag2: 'block'
+       })
+     else
+       this.setData({
+         disflag2: 'none'
+       })
+
+   }
+ },addExcavator:function(){
+   wx.navigateTo({
+     url: '/pages/add_excavator/add_excavator',
+   })
+ }
 })

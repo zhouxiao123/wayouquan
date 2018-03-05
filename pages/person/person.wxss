@@ -58,6 +58,19 @@ text-decoration:underline
     justify-content: space-between
 }
 
+.sub-menue{
+        border: solid 1px #F2F2F2;
+    border-radius: 10rpx 10rpx 0rpx 0rpx;
+    margin-top: 6rpx;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    padding: 20rpx;
+    height: 50rpx;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
 .menue-center{
       border: solid 1px #F2F2F2;
     border-radius: 10rpx 10rpx 10rpx 10rpx;

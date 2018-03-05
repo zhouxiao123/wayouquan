@@ -1,0 +1,26 @@
+<!--pages/add_excavator/add_excavator.wxml-->
+<view class="add-view">
+  <text class="add-text">车辆信息：</text>
+  <picker name="excavator_type" bindchange="bindTypeChange" range-key="name" value="{{et_value}}"   range="{{et}}">
+        <view class="picker radio-text">
+        {{et_name}}
+        </view>
+    </picker>
+</view>
+<view class="add-view">
+  <text class="add-text"> </text>
+  <picker name="excavator_brand" bindchange="bindBrandChange" range-key="name" value="{{brand_value}}"   range="{{brandList}}">
+        <view class="picker radio-text">
+        {{brand_name}}
+        </view>
+    </picker>
+</view>
+<view class="add-view">
+  <text class="add-text"> </text>
+  <picker name="excavator_version" bindchange="bindVersionChange" range-key="name" value="{{version_value}}"  range="{{versionList}}">
+        <view class="picker radio-text">
+        {{version_name}}
+        </view>
+    </picker>
+</view>
+

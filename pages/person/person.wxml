@@ -16,16 +16,27 @@
 
 
   <view class="person-menue">
-      <view class="menue">
+      <view class="menue"  catchtap='downMenue' data-type="1">
         <text class="menue-text">发布帖子</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/down.gif" class="menue-icon" mode='widthFix'></image>
       </view>
-
-    <view class="menue-center">
+      <view style="display:{{disflag1}}">
+      <view class="sub-menue" catchtap='addExcavator'>
+        <text class="menue-text">发布出售</text>
+        <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
+      </view>
+    </view>
+    
+    <view class="menue-center"  catchtap='downMenue' data-type="2">
         <text class="menue-text">我的发布</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/down.gif" class="menue-icon" mode='widthFix'></image>
       </view>
-
+      <view style="display:{{disflag2}}">
+      <view class="sub-menue">
+        <text class="menue-text">我发布的出售</text>
+        <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
+      </view>
+      </view>
       <view class="menue-center">
         <text class="menue-text">个人资料</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
