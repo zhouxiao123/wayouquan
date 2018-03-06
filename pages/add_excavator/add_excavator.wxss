@@ -5,7 +5,18 @@
   font-family: "微软雅黑";
   font-size:32rpx;
   color: #545253;
-  margin-top:20rpx
+  margin-top:20rpx;
+  align-items: center
+}
+
+.add-textarea-view{
+  display:flex;
+  margin-left:40rpx;
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  margin-top:20rpx;
+  align-items: flex-start
 }
 .add-text{
   width:200rpx;
@@ -16,4 +27,98 @@
   width:300rpx;
   text-align: center;
   background:#f3f3f3
+}
+
+.input-text{
+  border: 1px solid #545253;
+  width:250rpx;
+  text-align: center;
+  background:#f3f3f3
+}
+.nbutton{
+  width: 200rpx;
+    height: 60rpx;
+    background: #1ca1fe;
+    color: #fff;
+    border-radius: 10rpx;
+    font-size:28rpx;
+    line-height:60rpx
+}
+.footButton{
+  margin-top:40rpx;
+  display:flex;
+  align-items: center
+}
+.r-text{
+    font-family:微软雅黑;
+  font-size:28rpx;
+  margin-right:40rpx
+}
+.radio-arae{
+  border: 1px solid #545253;
+  width:300rpx;
+  background:#f3f3f3;
+  height:250rpx;
+  
+}
+.pic-select{
+      font-family:微软雅黑;
+      margin-top:40rpx;
+  font-size:32rpx;
+      color: #7d7b7b;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-left: 10rpx;
+    border-bottom: 1px solid #aaaaaa;
+}
+.pic-select-dec{
+        font-family:微软雅黑;
+      margin-top:40rpx;
+  font-size:32rpx;
+
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-left: 100rpx;
+}
+.pic-select-title{
+  color: #666;
+  font-size: 32rpx;
+  font-weight:bold;
+  margin-left: 100rpx;
+  margin-top:20rpx
+}
+.pic-select-content{
+    color: #666;
+  font-size: 32rpx;
+  margin-left: 100rpx;
+  margin-top:20rpx
+}
+.out-bar{
+  width: 550rpx;
+    height: 40rpx;
+    border: 1px solid #ccc;
+    margin: 50rpx auto;
+}
+.inner-bar{
+    height: 100%;
+    width: 0;
+    background: #ff6600;
+}
+.img-bar{
+  display:flex;
+  align-items: center;
+  flex-wrap: wrap
+}
+.pickfileDiv{
+  display:inline-block;
+      width: 140rpx;
+    height: 140rpx;
+    margin-top:20rpx;
+    margin-left:82rpx;
+    text-align: center;
+    line-height: 140rpx;
+    border: 1px dashed #ccc;
+    border-radius: 10rpx;
+    background: #fff;
+    font-size: 32rpx;
 }

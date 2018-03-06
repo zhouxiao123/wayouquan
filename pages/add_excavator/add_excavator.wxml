@@ -1,4 +1,5 @@
 <!--pages/add_excavator/add_excavator.wxml-->
+<view style="display:{{disflag1}}">
 <view class="add-view">
   <text class="add-text">车辆信息：</text>
   <picker name="excavator_type" bindchange="bindTypeChange" range-key="name" value="{{et_value}}"   range="{{et}}">
@@ -24,3 +25,149 @@
     </picker>
 </view>
 
+<view class="add-view">
+  <text class="add-text">使用时间：</text>
+  <input class="input-text" name="used_time" type='number' placeholder="单位:小时"/>
+  <text>小时</text>
+</view>
+
+<view class="add-view">
+  <text class="add-text">出售价格：</text>
+  <input class="input-text" name="price" type='digit' placeholder="单位:万元"/>
+  <text>万元</text>
+</view>
+
+<view class="add-view">
+  <text class="add-text">停放地址：</text>
+  <picker name="province"  bindchange="bindProvinceChange" range-key="name"   range="{{cs}}">
+        <view class="picker radio-text">
+        {{cs_name}}
+        </view>
+    </picker>
+</view>
+
+<view class="add-view">
+  <text class="add-text"> </text>
+  <picker name="city" bindchange="bindCityChange" range-key="name" value="{{city_value}}"  range="{{cityList}}">
+        <view class="picker radio-text">
+        {{city_name}}
+        </view>
+    </picker>
+</view>
+<view style="margin-top:40rpx">
+  <button catchtap='nextStep' class="nbutton">下一步</button>
+</view>
+</view>
+
+<view style="display:{{disflag2}}">
+<view class="add-view">
+  <text class="add-text">合格证：</text>
+  <radio-group name="qualified" >
+    <radio  value="1"  id="li"/><label for="li" class="r-text">有</label>
+    <radio  value="0" checked id="wen"/><label for="wen" class="r-text">无</label>
+      </radio-group> 
+</view>
+<!--隐藏可议价-->
+<input name="change_price" value="0" hidden='hidden'/>
+<!--隐藏生产日期-->
+<input name="production_date" value="1970-1-1" hidden='hidden'/>
+<!-- 隐藏是否进口,设置默认值 -->
+<input name="imported" value="0" hidden='hidden'/>
+<!-- 隐藏有无改装,设置默认值 -->
+<input name="modified" value="0" hidden='hidden'/>
+<!-- 隐藏有无大修,设置默认值 -->
+<input name="fixed" value="0" hidden='hidden'/>
+<view class="add-view">
+  <text class="add-text">购买日期：</text>
+    <picker name="buy_date" mode="date" value="{{date}}"  bindchange="bindDateChange">
+    <view class="radio-text">
+      {{date}}
+    </view>
+  </picker>
+</view>
+
+<view class="add-view">
+  <text class="add-text">设备序列号：</text>
+  <input class="radio-text" name="code_no"  placeholder="可以为空"/>
+  
+</view>
+
+<view class="add-view">
+  <text class="add-text">发票：</text>
+  <radio-group name="receipt" >
+    <radio  value="1"  id="li1"/><label for="li1" class="r-text">有</label>
+    <radio  value="0" checked id="wen1"/><label for="wen1" class="r-text">无</label>
+      </radio-group> 
+</view>
+
+<view class="add-view">
+  <text class="add-text">原车车况：</text>
+  <picker name="old_level"  bindchange="bindOldLevelChange" range-key="name"   range="{{ol}}">
+        <view class="picker radio-text">
+        {{ol_name}}
+        </view>
+    </picker>
+</view>
+<view class="add-view">
+  <text class="add-text">原车用途：</text>
+  <picker name="use"  bindchange="bindUseChange" range-key="name"   range="{{use}}">
+        <view class="picker radio-text">
+        {{use_name}}
+        </view>
+    </picker>
+</view>
+<view class="add-view">
+  <text class="add-text">当前状态：</text>
+  <picker name="cus_level"  bindchange="bindCurrentStatusChange" range-key="name"   range="{{cus}}">
+        <view class="picker radio-text">
+        {{cus_name}}
+        </view>
+    </picker>
+</view>
+
+<view class="add-textarea-view">
+  <text class="add-text">产品描述：</text>
+  <textarea class="radio-arae" maxlength="500" name="description" placeholder="简单的描述下你的机械,500字以内"></textarea>
+  
+</view>
+
+<view class="footButton">
+  <button catchtap='preStep' class="nbutton">上一步</button>
+  <button catchtap='nextStep2' class="nbutton">下一步</button>
+</view>
+</view>
+
+<view style="display:{{disflag3}}">
+<view class="add-view">
+  <text class="add-text">联系人：</text>
+  <input class="radio-text" name="link_name" />
+  
+</view>
+<view class="add-view">
+  <text class="add-text">电话号码：</text>
+  <input class="radio-text" name="phone" />
+  
+</view>
+
+<view class="pic-select">选择照片</view>
+
+<text class="pic-select-dec">仅支持JPG/JPEG格式文件</text>
+
+<view class="pic-select-title">上传进度：</view>
+
+<view class="out-bar"><view class="inner-bar"></view></view>
+
+<view class="pic-select-content">图片上传：</view>
+
+<view class="img-bar">
+  <image wx:for="{{files}}" src="{{item}}" style="width:140rpx;height:140rpx;margin-left:82rpx;margin-top:20rpx;"></image>
+  <view class="pickfileDiv" catchtap='chooseImg'>+</view>
+</view>
+
+
+
+<view class="footButton">
+  <button catchtap='preStep2' class="nbutton">上一步</button>
+  <button catchtap='submit' class="nbutton">发布</button>
+</view>
+</view>
