@@ -1,4 +1,5 @@
 <!--pages/add_excavator/add_excavator.wxml-->
+<form bindsubmit="formSubmit" >
 <view style="display:{{disflag1}}">
 <view class="add-view">
   <text class="add-text">车辆信息：</text>
@@ -27,13 +28,13 @@
 
 <view class="add-view">
   <text class="add-text">使用时间：</text>
-  <input class="input-text" name="used_time" type='number' placeholder="单位:小时"/>
+  <input class="input-text" name="used_time" type='number' placeholder="单位:小时" bindinput="setUsedTime"/>
   <text>小时</text>
 </view>
 
 <view class="add-view">
   <text class="add-text">出售价格：</text>
-  <input class="input-text" name="price" type='digit' placeholder="单位:万元"/>
+  <input class="input-text" name="price" type='digit' placeholder="单位:万元" bindinput='setPrice'/>
   <text>万元</text>
 </view>
 
@@ -160,7 +161,20 @@
 <view class="pic-select-content">图片上传：</view>
 
 <view class="img-bar">
-  <image wx:for="{{files}}" src="{{item}}" style="width:140rpx;height:140rpx;margin-left:82rpx;margin-top:20rpx;"></image>
+
+
+  <!--<view style="margin-left:82rpx;margin-top:20rpx;">
+    <image class="del" src="https://app.wayouquan.com/newexcavator/assets/images/imgDel.png" style="width:40rpx" mode='widthFix'></image>
+    <image class="first" src="https://app.wayouquan.com/newexcavator/assets/images/first.png" style="width:140rpx" mode='widthFix'></image>
+    <image  src="https://app.wayouquan.com/newexcavator/assets/images/search.jpg" style="width:140rpx;height:140rpx;"></image>
+  </view>-->
+
+  <view wx:for="{{files}}" style="margin-left:82rpx;margin-top:20rpx;z-index:1">
+    <image class="del" src="https://app.wayouquan.com/newexcavator/assets/images/imgDel.png" style="width:40rpx" mode='widthFix' data-index="{{index}}" catchtap='delImg'></image>
+    <image class="first"  src="https://app.wayouquan.com/newexcavator/assets/images/first.png" style=";z-index:2;width:140rpx;display:{{tag==index?'block':'none'}}" mode='widthFix'></image>
+    <image data-index="{{index}}" catchtap='setFirst' src="{{item}}" style="width:140rpx;height:140rpx;"></image>
+  </view>
+
   <view class="pickfileDiv" catchtap='chooseImg'>+</view>
 </view>
 
@@ -171,3 +185,4 @@
   <button catchtap='submit' class="nbutton">发布</button>
 </view>
 </view>
+</form>

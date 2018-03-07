@@ -122,3 +122,12 @@
     background: #fff;
     font-size: 32rpx;
 }
+.del{
+    display: block;
+    position:absolute;
+    z-index: 1000;
+}
+.first{
+    position:absolute;
+    z-index: 1000;
+}

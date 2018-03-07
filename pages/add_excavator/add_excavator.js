@@ -36,13 +36,23 @@ Page({
     disflag2: 'none',
     disflag3: 'none',
     date:'',
-    files:[]
+    files:[],
+    used_time:-1,
+    price:0,
+    tag:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //测试
+    this.setData({
+      disflag1: 'none',
+      disflag2: 'none',
+      disflag3: 'block',
+    })
+//------------------------
     var that = this
     wx.showLoading({
       mask: true,
@@ -229,10 +239,28 @@ Page({
   onReachBottom: function () {
   
   },nextStep:function(){
-    this.setData({
-      disflag1:'none',
-      disflag2: 'block',
-    })
+    if (this.data.used_time == -1){
+      wx.showModal({
+        title: '提示',
+        content: '使用时间不可为空',
+        showCancel: false,
+        success: function (res) {
+        }
+      })
+    }else if(this.data.price == 0){
+      wx.showModal({
+        title: '提示',
+        content: '出售价格不可为空',
+        showCancel: false,
+        success: function (res) {
+        }
+      })
+    } else {
+      this.setData({
+        disflag1:'none',
+        disflag2: 'block',
+      })
+    }
   }, nextStep2: function () {
     this.setData({
       disflag2: 'none',
@@ -248,23 +276,80 @@ Page({
       disflag3: 'none',
       disflag2: 'block',
     })
-  }, submit: function () {
+  }, setUsedTime:function(e){
+    this.setData({
+      used_time: e.detail.value
+    });
+  }, setPrice: function (e) {
+    this.setData({
+      price: e.detail.value
+    });
+  },formSubmit: function () {
 
+
+  }, delImg:function(e){
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否确定删除该图片?',
+      showCancel: true,
+      success: function (res) {
+        if(res.confirm){
+          if (that.data.files.length == 1) {
+            that.setData({
+              files: []
+            })
+          } else {
+            that.data.files.splice(e.currentTarget.dataset.index, 1)
+            if (e.currentTarget.dataset.index == that.data.tag) {
+              that.setData({
+                tag: 0
+              })
+            } else if (e.currentTarget.dataset.index < that.data.tag) {
+              that.setData({
+                tag: (that.data.tag - 1)
+              })
+            }
+            that.setData({
+              files: that.data.files
+            })
+          }
+        }
+      }
+    })
+
+  }, setFirst:function(e){
+    
+      this.setData({
+        tag:e.currentTarget.dataset.index
+      })
   }, chooseImg:function(){
     var that = this
+    var count = 10 - that.data.files.length
+    console.log(count)
+    if(count==0){
+      wx.showModal({
+        title: '提示',
+        content: '最多上传十张图片',
+        showCancel: false,
+        success: function (res) {
+        }
+      })
+    } else {
     wx.chooseImage({
-      count: 5, // 默认9
+      count: count, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         that.setData({
-          files: tempFilePaths
+          files: that.data.files.concat(tempFilePaths)
         })
 
       }
     })
+    }
   }
 })
 function transDate(mescStr, flag) {
