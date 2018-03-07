@@ -37,9 +37,11 @@ Page({
     disflag3: 'none',
     date:'',
     files:[],
+    filenames:[],
     used_time:-1,
     price:0,
-    tag:0
+    tag:0,
+    inwidth:0
   },
 
   /**
@@ -285,7 +287,8 @@ Page({
       price: e.detail.value
     });
   },formSubmit: function () {
-
+console.log(this.data.files)
+    console.log(this.data.filenames)
 
   }, delImg:function(e){
     var that = this
@@ -297,10 +300,12 @@ Page({
         if(res.confirm){
           if (that.data.files.length == 1) {
             that.setData({
-              files: []
+              files: [],
+              filenames:[]
             })
           } else {
             that.data.files.splice(e.currentTarget.dataset.index, 1)
+            that.data.filenames.splice(e.currentTarget.dataset.index, 1)
             if (e.currentTarget.dataset.index == that.data.tag) {
               that.setData({
                 tag: 0
@@ -311,7 +316,8 @@ Page({
               })
             }
             that.setData({
-              files: that.data.files
+              files: that.data.files,
+              filenames:that.data.filenames
             })
           }
         }
@@ -344,8 +350,51 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         that.setData({
-          files: that.data.files.concat(tempFilePaths)
+          inwidth: 0
         })
+        wx.showLoading({
+          mask: true,
+          title: '加载中'
+        })
+        var ignor = 0
+        var countA = 0
+        for (var i in tempFilePaths){
+          const uploadTask = wx.uploadFile({
+          url: app.globalData.baseUrl + 'wx/mobile/uploadFile',
+          filePath: tempFilePaths[i],
+          name: 'file',
+          success: function (res) {
+            if(res.data.length==0){
+              ignor++
+              wx.showModal({
+                title: '提示',
+                content: '仅支持JPG/JPEG格式',
+                showCancel: false,
+                success: function (res) {
+                }
+              })
+            } else{
+              countA++
+              that.data.files.push(app.globalData.baseUrl + "img/temp/" + res.data.replace(".","_S."))
+              that.data.filenames.push(res.data)
+              that.setData({
+                files: that.data.files,
+                filenames: that.data.filenames
+              })
+            }
+            if ((countA + ignor) == tempFilePaths.length){
+              wx.hideLoading()
+            }
+          }
+        })
+          uploadTask.onProgressUpdate((res) => {
+            //console.log("进度"+res.progress)
+             that.setData({
+               inwidth: res.progress
+             })
+          })
+        }
+        
 
       }
     })
