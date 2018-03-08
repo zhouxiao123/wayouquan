@@ -114,14 +114,46 @@ Page({
     })
   }, cobutton:function(e){
     //console.log("----")
+
     if (this.data.coflag==1){
       this.setData({
         coflag:2
+      })
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success',
+        duration: 1000
       })
     } else {
       this.setData({
         coflag: 1
       })
+      wx.showToast({
+        title: '取消收藏',
+        icon: 'success',
+        duration: 1000
+      })
+    }
+  },
+  onShareAppMessage: function (res) {
+    var that = this
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      //console.log(res.target)
+    }
+    return {
+      success: function (res) {
+        // 转发成功
+        wx.hideLoading()
+      },
+      fail: function (res) {
+        // 转发失败
+        wx.hideLoading()
+      }
     }
   }
 })

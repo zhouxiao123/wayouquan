@@ -1,13 +1,10 @@
-// pages/person/person.js
-const app = getApp()
+// pages/rank/rank.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    disflag1:'none',
-    disflag2:'none'
   
   },
 
@@ -15,7 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   
   },
 
@@ -61,34 +57,10 @@ Page({
   
   },
 
- downMenue:function(e){
-   if(e.currentTarget.dataset.type=="1"){
-    if(this.data.disflag1=='none')
-      this.setData({
-        disflag1:'block'
-      })
-    else
-      this.setData({
-         disflag1: 'none'
-      })
-   } else {
-     if (this.data.disflag2 == 'none')
-       this.setData({
-         disflag2: 'block'
-       })
-     else
-       this.setData({
-         disflag2: 'none'
-       })
-
-   }
- },addExcavator:function(){
-   wx.navigateTo({
-     url: '/pages/add_excavator/add_excavator',
-   })
- },toRank:function(){
-   wx.navigateTo({
-     url: '/pages/rank/rank',
-   })
- }
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
 })

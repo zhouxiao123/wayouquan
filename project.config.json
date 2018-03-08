@@ -25,13 +25,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
 					"name": "详情",
 					"pathName": "pages/msdetail/msdetail",
-					"query": "id=99"
+					"query": "id=1300"
 				},
 				{
 					"id": -1,
@@ -55,6 +55,12 @@
 					"id": -1,
 					"name": "登陆",
 					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "排行榜",
+					"pathName": "pages/rank/rank",
 					"query": ""
 				}
 			]

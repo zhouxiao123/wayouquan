@@ -9,7 +9,8 @@
     "pages/add_excavator/add_excavator",
     "pages/login/login",
     "pages/register/register",
-    "pages/forgetpass/forgetpass"
+    "pages/forgetpass/forgetpass",
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundTextStyle": "light",

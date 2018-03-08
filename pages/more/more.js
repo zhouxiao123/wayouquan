@@ -23,7 +23,7 @@ Page({
     pageSize: 10,
     opacityflag: 0,
     animationData: {},
-    search_name:''
+    search_name:'',
   },
 
   /**
@@ -31,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
     if(options.search_name != null){ 
       that.setData({
         search_name: options.search_name

@@ -43,7 +43,9 @@
 
 <view style="margin-top:40rpx;display:{{tag==0?'block':'none'}}">
   <view class="index-list" data-type="2" data-id="{{item.id}}" catchtap='toDetail' wx:for="{{ms1}}">
-      <view><image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
+      <view>
+      <image wx:if="{{item.isNew == 1}}" src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
       <view style="text-align:center;width:180rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
       <view style="text-align:center;width:180rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">{{item.p_name}}<text style="margin-left:10rpx;color:#ff7f21">{{item.price}}万</text></view>
   </view>
@@ -55,7 +57,9 @@
 
 <view style="margin-top:40rpx;display:{{tag==1?'block':'none'}}">
   <view class="index-list" wx:for="{{ms2}}" data-type="2" data-id="{{item.id}}" catchtap='toDetail'>
-      <view><image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
+      <view>
+      <image wx:if="{{item.isNew == 1}}" src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
       <view style="text-align:center;width:180rpx;height:32rpx;line-height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
       <view style="text-align:center;width:180rpx;height:32rpx;line-height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">{{item.p_name}}<text style="margin-left:10rpx;color:#ff7f21">{{item.price}}万</text></view>
   </view>

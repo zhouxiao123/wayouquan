@@ -9,7 +9,7 @@
         <text class="text-one">积分 <text class="text-two">50</text></text>
         <view class="button-content">
           <text class="text-three">兑换商品</text>
-          <text class="text-three">排行榜</text>
+          <text class="text-three" catchtap='toRank'>排行榜</text>
         </view>
     </view>
   </view>

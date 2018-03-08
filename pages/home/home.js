@@ -11,7 +11,8 @@ Page({
     tag: 0,
     ms1: [],
     ms2: [],
-    search_name:''
+    search_name:'',
+
   },
   //事件处理函数
   bindViewTap: function () {
@@ -26,6 +27,7 @@ Page({
   },
   onLoad: function () {
     var that = this
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
