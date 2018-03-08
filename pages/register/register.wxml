@@ -1,0 +1,19 @@
+<!--pages/register/register.wxml-->
+<view class="register-title">
+<image src="https://app.wayouquan.com/newexcavator/assets/images/home.png" style="width:40rpx;margin-left:20rpx" mode='widthFix' catchtap='toHome'></image>
+  <text style="color:#fff;font-size:33rpx;margin:20rpx;display:inline-block;width:150rpx;text-align:center;margin-left:240rpx">注册</text>
+</view>
+
+    <image src="https://app.wayouquan.com/newexcavator/assets/images/1433141096279.png" style="width:480rpx;margin-top: 100rpx;margin-left: 135rpx;margin-bottom: 60rpx;" mode='widthFix'></image>
+
+
+    <view>
+      <input class="input-content" name="phone" bindinput='setPhone' placeholder="请输入手机号"></input>
+      <input class="input-content"  name="name" bindinput='setName' placeholder="请输入姓名"></input>
+      <input class="input-content" type="password" name="password" bindinput='setPassword' placeholder="请输入密码"></input>
+      <input class="input-content" type="password" name="re_password" bindinput='setRePassword' placeholder="请再输入一次密码"></input>
+      <input class="input-content"  name="invited" bindinput='setInvited' placeholder="邀请人账号,可不填"></input>
+    </view>
+<view style="margin-top:40rpx">
+  <button catchtap='register' class="nbutton">注册</button>
+</view>

@@ -6,6 +6,19 @@
   justify-content: space-between;
   align-items: center
 }
+.header{
+  margin-top:20rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom:20rpx;
+  
+
+}
+.header-share{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
 .title{
   font-size:28rpx;
   font-family:微软雅黑;
@@ -91,4 +104,13 @@ width:325rpx;
       font-size: 26rpx;
       justify-content: center;
   align-items: center;  
+}
+.hide-button{
+  position: static;
+  line-height: normal;
+  margin:0;
+  padding: 0;
+  background: #fff;
+  width:150rpx;
+  display:inline-block;
 }

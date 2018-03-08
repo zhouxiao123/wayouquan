@@ -6,7 +6,10 @@
     "pages/msdetail/msdetail",
     "pages/home/home",
     "pages/person/person",
-    "pages/add_excavator/add_excavator"
+    "pages/add_excavator/add_excavator",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/forgetpass/forgetpass"
   ],
   "window": {
     "backgroundTextStyle": "light",

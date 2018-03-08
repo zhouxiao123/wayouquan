@@ -1,0 +1,26 @@
+<!--pages/forgetpass/forgetpass.wxml-->
+<view class="pass-title">
+<image src="https://app.wayouquan.com/newexcavator/assets/images/home.png" style="width:40rpx;margin-left:20rpx" mode='widthFix' catchtap='toHome'></image>
+  <text style="color:#fff;font-size:33rpx;margin:20rpx;display:inline-block;width:150rpx;text-align:center;margin-left:240rpx">找回密码</text>
+</view>
+
+    <image src="https://app.wayouquan.com/newexcavator/assets/images/wyqLogo.png" style="width:230rpx;margin-top: 100rpx;margin-left: 260rpx;margin-bottom: 60rpx;" mode='widthFix'></image>
+
+    <view>
+      <input class="login-input" name="username" bindinput='setUsername' placeholder="请输入手机号"></input>
+      <view style="text-align:center">  
+        <text style="font-family:微软雅黑;font-size:32rpx;">({{time}}秒后重新获取)</text>
+      </view>
+      <view style="margin-top:20rpx">
+        <button catchtap='getCode' class="nbutton" disabled='{{disflag}}'>获取验证码</button>
+      </view>
+      <input class="login-input" name="valicode" placeholder="请填写验证码"></input>
+      <input class="login-input" type="password" name="password" placeholder="新密码"></input>
+      <input class="login-input" type="password" name="repassword" placeholder="确认新密码"></input>
+      <view style="text-align:center">  
+        <text style="font-family:微软雅黑;font-size:28rpx;color:red">如无法找回密码请联系QQ:968276</text>
+      </view>
+    </view>
+<view style="margin-top:40rpx">
+  <button catchtap='findPass' class="nbutton">确认</button>
+</view>

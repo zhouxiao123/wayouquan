@@ -9,7 +9,8 @@ Page({
   id:0,
   type:0,
   adv:{},
-  m:{}
+  m:{},
+  coflag:1
   },
 
   /**
@@ -111,6 +112,17 @@ Page({
     wx.navigateTo({
       url: '/pages/person/person',
     })
+  }, cobutton:function(e){
+    //console.log("----")
+    if (this.data.coflag==1){
+      this.setData({
+        coflag:2
+      })
+    } else {
+      this.setData({
+        coflag: 1
+      })
+    }
   }
 })
 function transDate(mescStr,flag) {

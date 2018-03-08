@@ -25,13 +25,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "详情",
 					"pathName": "pages/msdetail/msdetail",
-					"query": ""
+					"query": "id=99"
 				},
 				{
 					"id": -1,
@@ -48,7 +48,14 @@
 				{
 					"id": -1,
 					"name": "添加挖掘机",
-					"pathName": "pages/add_excavator/add_excavator"
+					"pathName": "pages/add_excavator/add_excavator",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登陆",
+					"pathName": "pages/login/login",
+					"query": ""
 				}
 			]
 		}

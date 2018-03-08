@@ -49,11 +49,11 @@ Page({
    */
   onLoad: function (options) {
     //测试
-    this.setData({
+    /*this.setData({
       disflag1: 'none',
       disflag2: 'none',
       disflag3: 'block',
-    })
+    })*/
 //------------------------
     var that = this
     wx.showLoading({
