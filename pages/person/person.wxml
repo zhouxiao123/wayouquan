@@ -4,9 +4,9 @@
   <view class="person-top">
     <image src="https://app.wayouquan.com/newexcavator/assets/images/wyqLogo.png" style="width:170rpx" mode='widthFix'></image>
     <view class="person-top-right">
-        <text class="text-one">周肖</text>
-        <text class="text-one">13699464941</text>
-        <text class="text-one">积分 <text class="text-two">50</text></text>
+        <text class="text-one">{{user.name}}</text>
+        <text class="text-one">{{user.cell_phone}}</text>
+        <text class="text-one">积分 <text class="text-two">{{user.point}}</text></text>
         <view class="button-content">
           <text class="text-three">兑换商品</text>
           <text class="text-three" catchtap='toRank'>排行榜</text>

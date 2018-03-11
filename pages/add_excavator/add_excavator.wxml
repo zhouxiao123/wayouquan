@@ -141,12 +141,12 @@
 <view style="display:{{disflag3}}">
 <view class="add-view">
   <text class="add-text">联系人：</text>
-  <input class="radio-text" name="link_name" />
+  <input class="radio-text" name="link_name" value="{{user.name}}"/>
   
 </view>
 <view class="add-view">
   <text class="add-text">电话号码：</text>
-  <input class="radio-text" name="phone" />
+  <input class="radio-text" name="phone" value="{{user.cell_phone}}"/>
   
 </view>
 

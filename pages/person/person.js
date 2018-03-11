@@ -7,16 +7,149 @@ Page({
    */
   data: {
     disflag1:'none',
-    disflag2:'none'
-  
+    disflag2:'none',
+    oid:'',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    user:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-  
+    var that = this
+    var value = wx.getStorageSync('oid')
+
+    if (value) {
+      that.data.oid = value;
+    } else {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: app.globalData.baseUrl + 'wx/login',
+              data: {
+                code: res.code
+              },
+              success: function (res) {
+                if (res.data == "") {
+                  wx.showModal({
+                    title: '提示',
+                    content: '获取用户登录信息失败',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        console.log('用户点击确定')
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                }
+                wx.setStorageSync('oid', res.data.oid)
+                //继续处理上面的
+                that.data.oid = res.data.oid;
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+            wx.showModal({
+              title: '提示',
+              content: '获取用户登录状态失败',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+        }
+      })
+    }
+
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+
+    } else if (this.data.canIUse) {
+
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/getUserDetail',
+      data: {
+        oid: that.data.oid
+      },
+      success: function (res) {
+        wx.hideLoading()
+        //console.log(res.data)
+        if(res.data.info == "ok"){
+          that.setData({
+            user:res.data.user
+          })
+          wx.request({
+            url: app.globalData.baseUrl + 'wx/updateUser',
+            data: {
+              oid: that.data.oid,
+              head: that.data.userInfo.avatarUrl,
+              nickname: that.data.userInfo.nickName
+            },
+            method: 'POST',
+            header: {
+              //设置参数内容类型为json
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '请先绑定信息',
+            showCancel: false,
+            success: function (res) {
+              wx.redirectTo({
+                url: '/pages/register/register'
+              })
+            }
+          })
+        }
+      }
+    })
+
   },
 
   /**

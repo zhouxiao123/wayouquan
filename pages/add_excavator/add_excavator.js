@@ -41,7 +41,9 @@ Page({
     used_time:-1,
     price:0,
     tag:0,
-    inwidth:0
+    inwidth:0,
+    user: {},
+    oid:''
   },
 
   /**
@@ -49,13 +51,67 @@ Page({
    */
   onLoad: function (options) {
     //测试
-    this.setData({
+    /*this.setData({
       disflag1: 'none',
       disflag2: 'none',
       disflag3: 'block',
-    })
+    })*/
 //------------------------
     var that = this
+    var value = wx.getStorageSync('oid')
+
+    if (value) {
+      that.data.oid = value;
+    } else {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: app.globalData.baseUrl + 'wx/login',
+              data: {
+                code: res.code
+              },
+              success: function (res) {
+                if (res.data == "") {
+                  wx.showModal({
+                    title: '提示',
+                    content: '获取用户登录信息失败',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        console.log('用户点击确定')
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                }
+                wx.setStorageSync('oid', res.data.oid)
+                //继续处理上面的
+                that.data.oid = res.data.oid;
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+            wx.showModal({
+              title: '提示',
+              content: '获取用户登录状态失败',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+        }
+      })
+    }
+
+
     wx.showLoading({
       mask: true,
       title: '加载中'
@@ -75,6 +131,36 @@ Page({
         that.bindTypeChange({detail:{value:0}})
         that.bindProvinceChange({ detail: { value: 22 } })
         wx.hideLoading()
+      }
+    })
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/getUserDetail',
+      data: {
+        oid: that.data.oid
+      },
+      success: function (res) {
+        wx.hideLoading()
+        //console.log(res.data)
+        if (res.data.info == "ok") {
+          that.setData({
+            user: res.data.user
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '请先绑定信息',
+            showCancel: false,
+            success: function (res) {
+              wx.navigateTo({
+                url: '/pages/register/register'
+              })
+            }
+          })
+        }
       }
     })
   }, bindTypeChange:function(e){
@@ -286,9 +372,40 @@ Page({
     this.setData({
       price: e.detail.value
     });
-  },formSubmit: function () {
-console.log(this.data.files)
-    console.log(this.data.filenames)
+  },formSubmit: function (e) {
+    var that = this
+//console.log(this.data.files)
+    var value = e.detail.value
+    console.log()
+
+    /*wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/getUserDetail',
+      data: e.detail.value,
+      success: function (res) {
+        wx.hideLoading()
+        console.log(res.data)
+        if (res.data.info == "ok") {
+          that.setData({
+            user: res.data.user
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '请先绑定信息',
+            showCancel: false,
+            success: function (res) {
+              wx.navigateTo({
+                url: '/pages/register/register'
+              })
+            }
+          })
+        }
+      }
+    })*/
 
   }, delImg:function(e){
     var that = this
