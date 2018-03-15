@@ -10,7 +10,9 @@ Page({
   type:0,
   adv:{},
   m:{},
-  coflag:1
+  coflag:1,
+  oid:'',
+  fromtag: 0
   },
 
   /**
@@ -22,6 +24,64 @@ Page({
       id: options.id,
       type: options.type
     })
+
+    if(options.from=="user"){
+      that.setData({
+        fromtag:1
+      })
+    }
+    var value = wx.getStorageSync('oid')
+
+    if (value) {
+      that.data.oid = value;
+    } else {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: app.globalData.baseUrl + 'wx/login',
+              data: {
+                code: res.code
+              },
+              success: function (res) {
+                if (res.data == "") {
+                  wx.showModal({
+                    title: '提示',
+                    content: '获取用户登录信息失败',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        console.log('用户点击确定')
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                }
+                wx.setStorageSync('oid', res.data.oid)
+                //继续处理上面的
+                that.data.oid = res.data.oid;
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+            wx.showModal({
+              title: '提示',
+              content: '获取用户登录状态失败',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+        }
+      })
+    }
     //console.log(that.data.id + "------" + that.data.type)
     wx.showLoading({
       mask: true,
@@ -52,7 +112,25 @@ Page({
           m: res.data.m
         })
 
-        wx.hideLoading()
+        wx.request({
+          url: app.globalData.baseUrl + 'wx/is_collect_machine',
+          data: {
+            mid: that.data.id,
+            oid: that.data.oid
+          },
+          success: function (res) {
+            if (res.data.result=="ok"){
+
+              that.setData({
+                coflag:2
+              })
+
+            }
+            
+
+            wx.hideLoading()
+          }
+        })
       }
     })
   },
@@ -114,25 +192,102 @@ Page({
     })
   }, cobutton:function(e){
     //console.log("----")
-
+    var that = this
     if (this.data.coflag==1){
-      this.setData({
-        coflag:2
+      wx.showLoading({
+        mask: true,
+        title: '加载中'
       })
-      wx.showToast({
-        title: '收藏成功',
-        icon: 'success',
-        duration: 1000
+      wx.request({
+        url: app.globalData.baseUrl + 'wx/collect_machine',
+        data: {
+          mid: that.data.id,
+          oid: that.data.oid
+        },
+        success: function (res) {
+          wx.hideLoading()
+          if (res.data.result == "ok") {
+
+            that.setData({
+              coflag: 2
+            })
+            wx.showToast({
+              title: '收藏成功',
+              icon: 'success',
+              duration: 1000
+            })          
+          } else if (res.data.result == "not"){
+            wx.showModal({
+              title: '提示',
+              content: '请先绑定信息',
+              showCancel: false,
+              success: function (res) {
+                wx.navigateTo({
+                  url: '/pages/register/register'
+                })
+              }
+            })
+        } else {
+            that.setData({
+              coflag: 1
+            })
+            wx.showToast({
+              title: '收藏失败',
+              icon: 'none',
+              duration: 1000
+            }) 
+        }
+        }
       })
+
     } else {
-      this.setData({
-        coflag: 1
+      wx.showLoading({
+        mask: true,
+        title: '加载中'
       })
-      wx.showToast({
-        title: '取消收藏',
-        icon: 'success',
-        duration: 1000
+      wx.request({
+        url: app.globalData.baseUrl + 'wx/cancel_collect_machine',
+        data: {
+          mid: that.data.id,
+          oid: that.data.oid
+        },
+        success: function (res) {
+          wx.hideLoading()
+          if (res.data.result == "ok") {
+
+            that.setData({
+              coflag: 1
+            })
+            wx.showToast({
+              title: '取消收藏',
+              icon: 'success',
+              duration: 1000
+            })
+          } else if (res.data.result == "not") {
+            wx.showModal({
+              title: '提示',
+              content: '请先绑定信息',
+              showCancel: false,
+              success: function (res) {
+                wx.navigateTo({
+                  url: '/pages/register/register'
+                })
+              }
+            })
+          } else {
+            that.setData({
+              coflag: 2
+            })
+            wx.showToast({
+              title: '取消收藏失败',
+              icon: 'none',
+              duration: 1000
+            })
+          }
+        }
       })
+
+
     }
   },
   onShareAppMessage: function (res) {

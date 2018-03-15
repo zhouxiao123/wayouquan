@@ -37,6 +37,12 @@
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
       </view>
       </view>
+
+      <view catchtap='myCollect' class="menue-center">
+        <text class="menue-text">我的收藏</text>
+        <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
+      </view>
+
       <view class="menue-center">
         <text class="menue-text">个人资料</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>

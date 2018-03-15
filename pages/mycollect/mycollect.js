@@ -1,28 +1,30 @@
-// pages/more/more.js
+// pages/mycollect/mycollect.js
 const app = getApp()
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    tag:-1,
-    typelist: [{ id: 0, name: '全部' }, { id: 1, name: '挖掘机' }, { id: 2, name:'装载机'}],
-    type_name:'',
-    type_id:0,
-    brand:[],
+    tag: -1,
+    typelist: [{ id: 0, name: '全部' }, { id: 1, name: '挖掘机' }, { id: 2, name: '装载机' }],
+    type_name: '',
+    type_id: 0,
+    brand: [],
     brand_name: '',
     brand_id: 0,
-    city:[],
+    city: [],
     city_name: '',
     city_id: 0,
-    data:{},
+    data: {},
     //下拉加载
     hasMore: true,
     pageOffset: 0,
     pageSize: 10,
     opacityflag: 0,
     animationData: {},
-    search_name:'',
+    search_name: '',
+    oid:''
   },
 
   /**
@@ -31,106 +33,142 @@ Page({
   onLoad: function (options) {
     var that = this
 
-    if(options.search_name != null){ 
+    /*if (options.search_name != null) {
       that.setData({
         search_name: options.search_name
       })
-      
+
+    }*/
+    var value = wx.getStorageSync('oid')
+
+    if (value) {
+      that.data.oid = value;
+    } else {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: app.globalData.baseUrl + 'wx/login',
+              data: {
+                code: res.code
+              },
+              success: function (res) {
+                if (res.data == "") {
+                  wx.showModal({
+                    title: '提示',
+                    content: '获取用户登录信息失败',
+                    showCancel: false,
+                    success: function (res) {
+                      if (res.confirm) {
+                        console.log('用户点击确定')
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                }
+                wx.setStorageSync('oid', res.data.oid)
+                //继续处理上面的
+                that.data.oid = res.data.oid;
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+            wx.showModal({
+              title: '提示',
+              content: '获取用户登录状态失败',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+        }
+      })
     }
     wx.showLoading({
       mask: true,
       title: '加载中'
     })
     wx.request({
-      url: app.globalData.baseUrl + 'wx/mobile/list',
+      url: app.globalData.baseUrl + 'wx/collect_list',
       data: {
-        type: options.type,
-        search_name:options.search_name== null?'':options.search_name
+        oid: that.data.oid,
+        search_name: options.search_name == null ? '' : options.search_name
       },
       success: function (res) {
         //console.log(transDate(res.data.m.buy_date, true))
         //console.log(res.data.m.create_time)
-        for (var i in res.data.ms) {
-          res.data.ms[i].cover_path = res.data.ms[i].cover_path.replace('.', '_S.')
-          res.data.ms[i].buy_date == null ? res.data.ms[i].buy_date = '未知' : res.data.ms[i].buy_date = transDate(res.data.ms[i].buy_date,1)
-          res.data.ms[i].create_time = fromNowToDate(res.data.ms[i].create_time)
+        for (var i in res.data.collectMachine) {
+          res.data.collectMachine[i].mi.cover_path = res.data.collectMachine[i].mi.cover_path.replace('.', '_S.')
+          res.data.collectMachine[i].mi.buy_date == null ? res.data.collectMachine[i].mi.buy_date = '未知' : res.data.collectMachine[i].mi.buy_date = transDate(res.data.collectMachine[i].mi.buy_date, 1)
+          res.data.collectMachine[i].mi.create_time = fromNowToDate(res.data.collectMachine[i].mi.create_time)
         }
 
-        var city = new Array()
-        var first_city = { id: 0, name: "全部地区", parent_id:0}
-        city.push(first_city)
-        for (var j in res.data.cs){
-          city.push(res.data.cs[j])
-      }
-
-        var brand = new Array()
-        var first_brand = { id: 0, name: "全部品牌"}
-        brand.push(first_brand)
-        for (var k in res.data.bs) {
-          brand.push(res.data.bs[k])
-        }
+        
         //city.push(res.data.cs)
         //console.log(city)
         //console.log(res.data.cs)
         that.setData({
           data: res.data,
-          city:city,
-          brand: brand,
-          type_name: options.type == null ? '全部机械' : options.type == 1 ? '挖掘机' : '装载机',
-          city_name: res.data.city_name != null ? res.data.city_name : '全部地区',
-          brand_name: res.data.exb_name != null ? res.data.exb_name : '全部品牌'
+
         })
 
         wx.hideLoading()
       }
     })
   },
-  toDetail:function (e) {
+  toDetail: function (e) {
     wx.navigateTo({
-      url: '../msdetail/msdetail?id=' + e.currentTarget.dataset.id,
+      url: '../msdetail/msdetail?from=user&id=' + e.currentTarget.dataset.id,
     })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
-  }, bindTypeChange:function(e){
+
+  }, bindTypeChange: function (e) {
     this.setData({
       type_name: this.data.typelist[e.detail.value].name,
       type_id: this.data.typelist[e.detail.value].id,
       tag: -1
     })
     this.search();
-  }, bindCityChange:function(e){
+  }, bindCityChange: function (e) {
     this.setData({
       city_name: this.data.city[e.detail.value].name,
       city_id: this.data.city[e.detail.value].id,
       tag: -1
     })
     this.search();
-  }, bindBrandChange:function(e){
+  }, bindBrandChange: function (e) {
     this.setData({
       brand_name: this.data.brand[e.detail.value].name,
       brand_id: this.data.brand[e.detail.value].id,
@@ -181,7 +219,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },// 上拉加载回调接口
   onReachBottom: function () {
     // 我们用total和count来控制分页，total代表已请求数据的总数，count代表每次请求的个数。
@@ -238,7 +276,7 @@ Page({
 
   },
   swichNav: function (event) {
-    
+
     if (this.data.tag == event.currentTarget.dataset.current) {
       return false;
     } else {
@@ -247,9 +285,9 @@ Page({
       })
     }
 
-   
+
   },
-  toHome:function(){
+  toHome: function () {
     wx.reLaunch({
       url: '/pages/home/home',
     })
@@ -301,6 +339,6 @@ function fromNowToDate(mescStr) {
   } else if (parseInt(d) == 1) {
     return "昨天发布";
   } else {
-    return transDate(date,2)+" 发布";
+    return transDate(date, 2) + " 发布";
   }
 }

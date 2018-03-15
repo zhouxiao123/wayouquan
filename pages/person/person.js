@@ -223,5 +223,9 @@ Page({
    wx.navigateTo({
      url: '/pages/rank/rank',
    })
+ }, myCollect:function(){
+   wx.navigateTo({
+     url: '/pages/mycollect/mycollect',
+   })
  }
 })

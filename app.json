@@ -10,7 +10,8 @@
     "pages/login/login",
     "pages/register/register",
     "pages/forgetpass/forgetpass",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/mycollect/mycollect"
   ],
   "window": {
     "backgroundTextStyle": "light",
