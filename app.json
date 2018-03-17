@@ -11,7 +11,8 @@
     "pages/register/register",
     "pages/forgetpass/forgetpass",
     "pages/rank/rank",
-    "pages/mycollect/mycollect"
+    "pages/mycollect/mycollect",
+    "pages/jubao/jubao"
   ],
   "window": {
     "backgroundTextStyle": "light",

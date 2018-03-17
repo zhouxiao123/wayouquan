@@ -189,22 +189,17 @@ Page({
       title: '加载中'
     })
     wx.request({
-      url: app.globalData.baseUrl + 'wx/mobile/list',
-
+      url: app.globalData.baseUrl + 'wx/collect_list',
       data: {
-        search_name: this.data.search_name,
-        type: this.data.type_id,
-        city_name: this.data.city_name,
-        city_id: this.data.city_id,
-        exb_name: this.data.brand_name,
-        exb_id: this.data.brand_id
+        oid: that.data.oid,
+        search_name: that.data.search_name
       },
       success: function (res) {
         //console.log(res.data)
-        for (var i in res.data.ms) {
-          res.data.ms[i].cover_path = res.data.ms[i].cover_path.replace('.', '_S.')
-          res.data.ms[i].buy_date == null ? res.data.ms[i].buy_date = '未知' : res.data.ms[i].buy_date = transDate(res.data.ms[i].buy_date, 1)
-          res.data.ms[i].create_time = fromNowToDate(res.data.ms[i].create_time)
+        for (var i in res.data.collectMachine) {
+          res.data.collectMachine[i].mi.cover_path = res.data.collectMachine[i].mi.cover_path.replace('.', '_S.')
+          res.data.collectMachine[i].mi.buy_date == null ? res.data.collectMachine[i].mi.buy_date = '未知' : res.data.collectMachine[i].mi.buy_date = transDate(res.data.collectMachine[i].mi.buy_date, 1)
+          res.data.collectMachine[i].mi.create_time = fromNowToDate(res.data.collectMachine[i].mi.create_time)
         }
         that.setData({
           data: res.data,

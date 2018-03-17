@@ -7,10 +7,10 @@
 </view>
 
 
-  <view class="search">
+  <!--<view class="search">
     <input style="font-family:'微软雅黑'; color:#666;display:inline-block" bindinput="setValue" value="{{search_name}}"></input>
     <image src="https://app.wayouquan.com/newexcavator/assets/images/search.jpg" style="width:40rpx;margin-right:20rpx" mode='widthFix' bindtap='search'></image>
-  </view>
+  </view>-->
 
 
   <view style="background:#fff;margin-top:20rpx">
