@@ -12,7 +12,8 @@
     "pages/forgetpass/forgetpass",
     "pages/rank/rank",
     "pages/mycollect/mycollect",
-    "pages/jubao/jubao"
+    "pages/jubao/jubao",
+    "pages/my_excavator/my_excavator"
   ],
   "window": {
     "backgroundTextStyle": "light",

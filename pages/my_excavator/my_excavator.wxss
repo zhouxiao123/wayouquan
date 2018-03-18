@@ -1,0 +1,109 @@
+/* pages/my_excavator/my_excavator.wxss */
+.more-title{
+  height:60rpx;
+  background:#1da1ff;
+  display:flex;
+  justify-content: center;
+  align-items: center
+}
+
+.nbutton{
+  width: 200rpx;
+    height: 60rpx;
+    background: #1ca1fe;
+    color: #fff;
+    border-radius: 10rpx;
+    font-size:28rpx;
+    line-height:60rpx
+}
+.search{
+  width: 500rpx;
+    margin: 20rpx auto;
+    border-radius: 30rpx;
+    border: 1px solid #bfbfbf;
+    height: 50rpx;
+    line-height: 50rpx;
+    background: #fff;
+    display:flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.search input{
+  width: 410rpx;
+    padding-left: 20rpx;
+    border-radius: 30rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.tag-list{
+  margin-top:20rpx;
+  margin-left:40rpx;
+  margin-right:40rpx;
+  margin-bottom:20rpx;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999
+}
+
+
+.tag-view{
+    text-align:center;
+    display:flex;
+    width:210rpx;
+    padding:10rpx;
+  flex-direction:column;
+    font-family:黑体;
+  color:#4b4c4c;
+  font-size:30rpx;
+  border-right: 1px solid #999
+}
+
+.on{
+  border-bottom: 2px solid #59c9b9;
+}
+
+.t-on{
+  color:#59c9b9;
+}
+
+.list-content{
+   display:flex;
+   
+}
+
+.listR1{
+  font-family: 微软雅黑;
+  
+}
+.h4{
+  color: #676565;
+  font-size:28rpx;
+  font-weight: bold;
+  display:block;
+}
+.time{
+  color: #9b9b9b;
+  font-size:28rpx;
+}
+.price{
+  color: #ff7f21;
+  font-size:28rpx;
+  margin-top:5rpx;
+margin-left:30rpx
+}
+.address{
+  color: #9b9b9b;
+  font-size:28rpx;
+  margin-top:5rpx;
+  display:block
+}
+.time0{
+  text-align: right;
+  color: #666;
+  font-size:24rpx;
+  margin-right:20rpx
+}

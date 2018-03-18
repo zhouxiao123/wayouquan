@@ -31,7 +31,7 @@
         <text class="menue-text">我的发布</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/down.gif" class="menue-icon" mode='widthFix'></image>
       </view>
-      <view style="display:{{disflag2}}">
+      <view style="display:{{disflag2}}"  catchtap='myExcavator'>
       <view class="sub-menue">
         <text class="menue-text">我发布的出售</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>

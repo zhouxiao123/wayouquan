@@ -1,0 +1,47 @@
+<!--pages/my_excavator/my_excavator.wxml-->
+<view>
+<view class="more-title">
+
+  <text style="color:#fff;font-size:33rpx;margin:20rpx">我发布的</text>
+
+</view>
+
+
+  <view style="margin-top:20rpx">
+
+  <view wx:for="{{data.ms}}" data-id="{{item.id}}" catchtap='toDetail' style="border-bottom:1px solid #999;padding-top:20rpx;">
+    <view class="list-content">
+      <!--<a href="/newexcavator/mobile/detail?id=2282#mp.weixin.qq.com">-->
+      <view style="margin-left:50rpx;width:200rpx">
+        <image wx:if="{{item.isNew == 1}}"  src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
+        <image style="width:200rpx;height:140rpx" src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}"/>
+        </view>
+            <view style="margin-left:30rpx;word-break:break-all;width:470rpx" class="listR1">
+              <text class="h4">{{item.brand_name+'_'+item.version_name+'【'+item.buy_date+'年】'}}</text>
+              <text class="time">{{item.used_time}}小时</text>
+              <text class="price">{{item.price}}万</text>              
+              <text class="address">{{item.p_name}} {{item.c_name}}</text>
+              <text class="address">{{item.verify==2?'审核不通过':item.verify==1?'审核通过':'待审核'}} {{item.close==2?'已出售':item.close==1?'下架':'上架'}}</text>
+              </view>
+            <!--<div class="clr"></div>-->
+    <!--</a>-->
+  </view>
+              <view class="time0">
+               <text>{{item.create_time}}</text>
+            </view>
+ <view wx:if="{{item.verify==1 && item.close!=2}}" style="margin-top:20rpx;margin-bottom:20rpx">
+  <button catchtap='changClose' data-id="{{item.id}}" data-close="{{item.close}}" class="nbutton">{{item.close==0?'下架':'上架'}}</button>
+</view>
+</view>
+
+
+<view  animation="{{animationData}}" class="tips1" style="opacity:{{opacityflag}}">
+ <view wx:if="{{hasMore}}" style="text-align:center">
+ <icon type="download" size="25"/><text style="font-family:黑体;font-size:0.8rem;color:#666">玩命的加载中...</text></view>
+ <view style="text-align:center" wx:else><text style="font-family:黑体;font-size:0.8rem;color:#666;">没有更多内容了</text></view>
+</view>
+
+
+  </view>
+
+</view>

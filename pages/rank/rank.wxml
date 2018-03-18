@@ -3,13 +3,13 @@
 
   <text style="color:#fff;font-size:33rpx;margin:20rpx">排行榜</text>
 </view>
-<view style="font-size:32rpx;color:red;text-align:center;margin-top:20rpx;margin-bottom:20rpx;font-weight:bold">您的当前排名为1</view>
+<view style="font-size:32rpx;color:red;text-align:center;margin-top:20rpx;margin-bottom:20rpx;font-weight:bold">{{data.flag==0?'请加油，您的积分排行在100名以外！':'您的当前排名为'+data.flag}}</view>
 
-<view class="rank-list">
-  <view  class="rank-number">1</view>
-  <view  class="rank-name">周肖</view>
-  <view  class="rank-phone">136****4941</view>
-  <view  class="rank-point">199</view>
+<view class="rank-list" wx:for="{{data.sus}}">
+  <view  class="rank-number">{{item.rank}}</view>
+  <view  class="rank-name">{{item.name}}</view>
+  <view  class="rank-phone">{{item.username}}</view>
+  <view  class="rank-point">{{item.point}}</view>
 </view>
 
 

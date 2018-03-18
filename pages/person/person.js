@@ -227,5 +227,9 @@ Page({
    wx.navigateTo({
      url: '/pages/mycollect/mycollect',
    })
+ }, myExcavator:function(){
+   wx.navigateTo({
+     url: '/pages/my_excavator/my_excavator',
+   })
  }
 })

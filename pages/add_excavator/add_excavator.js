@@ -393,6 +393,11 @@ Page({
     })
     wx.request({
       url: app.globalData.baseUrl + 'wx/mobile/save',
+      method: 'POST',
+      header: {
+        //设置参数内容类型为json
+        "content-type": "application/x-www-form-urlencoded"
+      },
       data:{
         excavator_type:that.data.et_id,
         big_type:1,
@@ -425,8 +430,14 @@ Page({
         wx.hideLoading()
         console.log(res.data)
         if (res.data.info == "ok") {
-          that.setData({
-            user: res.data.user
+          wx.showModal({
+            title: '提示',
+            content: '发布成功',
+            showCancel: false,
+            success: function (res) {
+              wx.navigateBack({
+              })
+            }
           })
         } else {
           wx.showModal({

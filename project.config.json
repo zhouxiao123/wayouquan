@@ -62,6 +62,12 @@
 					"name": "排行榜",
 					"pathName": "pages/rank/rank",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我发布的",
+					"pathName": "pages/my_excavator/my_excavator",
+					"query": ""
 				}
 			]
 		}
