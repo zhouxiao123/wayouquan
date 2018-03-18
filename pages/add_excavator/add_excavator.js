@@ -376,15 +376,51 @@ Page({
     var that = this
 //console.log(this.data.files)
     var value = e.detail.value
-    console.log()
-
-    /*wx.showLoading({
+    //console.log()
+    if (that.data.filenames.length < 5){
+      wx.showModal({
+        title: '提示',
+        content: '至少上传5张照片',
+        showCancel: false,
+        success: function (res) {
+        }
+      })
+      
+    } else {
+    wx.showLoading({
       mask: true,
       title: '加载中'
     })
     wx.request({
-      url: app.globalData.baseUrl + 'wx/getUserDetail',
-      data: e.detail.value,
+      url: app.globalData.baseUrl + 'wx/mobile/save',
+      data:{
+        excavator_type:that.data.et_id,
+        big_type:1,
+        excavator_brand:that.data.brand_id,
+        excavator_version: that.data.version_id,
+        used_time: e.detail.value.used_time,
+        price: e.detail.value.price,
+        change_price: e.detail.value.change_price,
+        province: that.data.cs_id,
+        city:that.data.city_id,
+        imported: e.detail.value.imported,
+        qualified: e.detail.value.qualified,
+        receipt: e.detail.value.receipt,
+        production_date: e.detail.value.production_date,
+        buy_date: e.detail.value.buy_date,
+        code_no: e.detail.value.code_no,
+        modified: e.detail.value.modified,
+        fixed: e.detail.value.fixed,
+        old_level:that.data.ol_id,
+        use:that.data.use_id,
+        current_status:that.data.cus_id,
+        description: e.detail.value.description,
+        link_name: e.detail.value.link_name,
+        phone: e.detail.value.phone,
+        oid:that.data.oid,
+        filename: that.data.filenames,
+        first_num:that.data.tag
+      },
       success: function (res) {
         wx.hideLoading()
         console.log(res.data)
@@ -405,8 +441,8 @@ Page({
           })
         }
       }
-    })*/
-
+    })
+    }
   }, delImg:function(e){
     var that = this
     wx.showModal({
