@@ -13,7 +13,7 @@
     <view>
       <input class="input-content" name="phone" bindinput='setPhone' placeholder="请输入手机号"></input>
       <input class="input-content"  name="name" bindinput='setName' placeholder="请输入姓名"></input>
-      <input class="input-content"  name="invited" bindinput='setInvited' placeholder="邀请人账号,可不填"></input>
+      <input class="input-content"  name="invited" bindinput='setInvited' placeholder="邀请人账号,可不填" value="{{invited}}"></input>
     </view>
 <view style="margin-top:40rpx">
   <button catchtap='register' class="nbutton">注册</button>

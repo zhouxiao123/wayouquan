@@ -1,0 +1,126 @@
+<!--pages/ask_detail/ask_detail.wxml-->
+<view style="padding-bottom:130rpx">
+  <view class="df">
+    <image src="{{askDetail.user.head}}" style="width:80rpx;height:80rpx;border-radius: 50%;"></image>
+    <view class="head-right">
+    <text style="color:#777;font-family:黑体;font-size:38rpx">{{askDetail.user.name}}</text>
+              <text style="font-family:黑体;color:#a7a6a6;font-size: 26rpx">{{askDetail.createtime}}</text>
+      </view>
+  </view>
+  <view style="border-bottom: 1px solid #eee;padding-bottom:20rpx;margin-left:100rpx;margin-top:40rpx;margin-right:100rpx">
+    <text style="font-family:黑体">{{askDetail.content}}</text>
+
+  </view>
+
+          <view style="background-color:#f0f0f0;height:20rpx">
+  </view>
+  
+
+
+
+  
+
+  <view wx:for="{{answer}}" class="ask-bar" >
+  <view class="topHead">
+        <view class="answer-content">
+          <image src="{{item.user.head}}" style="width:80rpx;height:80rpx;border-radius: 50%;"></image>
+          <view class="head-right">
+    <text style="color:#777;font-family:黑体;font-size:28rpx">{{item.user.name}}</text>
+                        <text style="font-family:黑体;color:#a7a6a6;font-size: 26rpx;">{{item.createtime}}</text>
+</view>
+        </view>
+        <view  class="intro-right-content"> 
+      <text wx:if="{{user!=null && (user.id==item.userid || user.id==askDetail.userid)}}" catchtap='delAnswer' class="number-text" data-id="{{item.id}}" style="margin-right:20rpx;color:red">删除</text>
+      </view>
+</view>
+
+        <text class="ask-text" style="display:block;margin-top:30rpx;margin-bottom:20rpx">{{item.content}}</text>
+
+
+
+
+
+      
+
+      </view>
+
+<view  class="talk_back">
+      <view class="talk_box">
+          
+        <input bindinput="setValue" value="{{msg}}" placeholder="回复" type="text" placeholder-style="font-family:黑体;" maxlength="500"  style="color:#a5a6a6;display:inline-block;width:490rpx;margin-left:30rpx;font-family:黑体;font-size:0.8rem"/>
+        <button bindtap='sendMsg' style="height:60rpx;font-size:0.8rem;line-height:60rpx">发送</button>
+      </view>
+    </view>
+
+<view  animation="{{animationData}}" class="tips1" style="opacity:{{opacityflag}};margin-top:30rpx">
+ <view wx:if="{{hasMore}}" style="text-align: center;">
+ <icon type="download" size="25"/><text style="font-family:黑体;font-size:0.8rem;color:#666">玩命的加载中...</text></view>
+ <view style="text-align: center;" wx:else><text style="font-family:黑体;font-size:0.8rem;color:#666;">没有更多内容了</text></view>
+</view>
+      </view>
+
+      
+
+      <!--<view else>
+        <view class="answer-content">
+          <image src="https://wxsign.sczk.com.cn/wxsczkappback/img/{{item.u.l.headUrl}}" style="width:52rpx;height:52rpx"></image>
+          <view class="listen-content" bindtap="listen" data-id="0">
+            <image  src="../../images/yjjxhs@2x.png" style="width:274rpx;height:50rpx"></image>
+            <view class="center-text">
+              <text class="img-text">十积分旁听</text>
+              <image src="../../images/{{img_url[0]}}" class="img-img"style="width:21rpx;height:27rpx"></image>
+            </view>
+          </view>
+          <text class="time-text">{{item.answerSec<60?item.answerSec+'"':(item.answerSec-item.answerSec%60)/60+"'"+item.answerSec%60+'"'}}</text>
+        </view>
+        <view class="intro-content">
+          <text class="name-text">{{item.u.l.lecturerName}}</text>
+          <text class="sep-text">|</text>
+          <text class="detail-text">{{item.l.lecturerDesc}}</text>
+          <image src="../../images/st@2x.png" style="width:16rpx;height:16rpx;margin-left:12rpx"></image>
+          <text class="number-text">{{item.count}}</text>
+        </view>
+      </view>-->
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+
+
+
+
+  <view>
+
+    <!--<view wx:if="{{user.isLecturer==1}}" class="talk_back">
+      <view class="talk_box">
+          
+        <input bindinput="setValue" value="{{msg}}" placeholder="回复" type="text" placeholder-style="font-family:黑体;" maxlength="500"  style="color:#a5a6a6;display:inline-block;width:490rpx;margin-left:30rpx;font-family:黑体;font-size:0.8rem"/>
+        <button bindtap='sendMsg' style="height:60rpx;font-size:0.8rem;line-height:60rpx">发送</button>
+      </view>
+    </view>-->
+
+    <view wx:if="{{user.isLecturer==1}}" class="talk_back" style="width:100%">
+      <view style="text-align:center" style="width:100%">
+          
+        
+        <button bindtap='toanswer' style="height:60rpx;font-size:0.8rem;line-height:60rpx;width:300rpx">回复</button>
+      </view>
+    </view>
+  </view>
+
+
+      
+

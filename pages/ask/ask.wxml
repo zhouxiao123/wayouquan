@@ -1,0 +1,30 @@
+<!--pages/ask/ask.wxml-->
+<view class="main-view">
+    <view  style="margin:20rpx;">
+    <form bindsubmit="formSubmit" >
+      <view style="padding :20rpx;margin:10rpx;border:1px solid #999;border-radius: 20rpx;">
+        <textarea  maxlength="500" placeholder="请输入您的留言" placeholder-style="font-family:黑体;font-size:0.8rem" style="width:100%;font-family:黑体;font-size:0.8rem;" name="content"></textarea>
+      </view>
+
+      <!--<view class="tag-view">
+      <radio-group name="issecret">
+        <radio value="0" checked="checked" id="li"/><label for="li" class="radio-text">直接提问</label>
+        <radio value="1"  id="wen"/><label for="wen" class="radio-text">匿名提问</label>
+      </radio-group>  
+    </view>-->
+
+      <view style="margin-top:200rpx">
+
+        <view class="classname" style="text-align:center">
+          <button formType="submit"  style="background-color:#f7805B;font-family:黑体;color:#fff;width:321rpx;">立即留言</button>
+          <input hidden name="oid" value="{{oid}}"/>
+          <input hidden name="m_id" value="{{id}}"/>
+        </view>
+      </view>
+      </form>
+
+    </view>
+
+   
+</view>
+

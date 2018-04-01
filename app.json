@@ -13,7 +13,9 @@
     "pages/rank/rank",
     "pages/mycollect/mycollect",
     "pages/jubao/jubao",
-    "pages/my_excavator/my_excavator"
+    "pages/my_excavator/my_excavator",
+    "pages/ask/ask",
+    "pages/ask_detail/ask_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

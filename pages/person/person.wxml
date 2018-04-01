@@ -53,10 +53,10 @@
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
       </view>
 
-      <view class="menue-bottom">
+      <button  open-type='share' class="hide-button">
         <text class="menue-text">邀请好友</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
-      </view>
+      </button>
   </view>
 
 

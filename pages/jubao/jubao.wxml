@@ -1,2 +1,35 @@
 <!--pages/jubao/jubao.wxml-->
-<text>pages/jubao/jubao.wxml</text>
+
+<view class="main-view">
+    
+    <view  style="margin:20rpx;">
+    <form bindsubmit="formSubmit" >
+      <view style="padding :20rpx;margin:10rpx;border:1px solid #999;border-radius: 20rpx;">
+        <textarea  maxlength="500" placeholder="请输入您的举报内容" placeholder-style="font-family:黑体;font-size:0.8rem" style="width:100%;font-family:黑体;font-size:0.8rem;" name="content"></textarea>
+      </view>
+      
+      <view style="margin-top:60rpx">
+
+        <view class="classname">
+          <button formType="submit"  style="background-color:#f7805B;font-family:黑体;color:#fff;width:321rpx;">提交举报</button>
+          <input hidden name="oid" value="{{oid}}"/>
+          <input hidden name="m_id" value="{{id}}"/>
+        </view>
+      </view>
+      </form>
+<view style="text-align:center;margin-top:50rpx;color:red">
+ 
+</view>
+  
+</view>
+      
+  <!--</swiper>-->
+</view>
+
+
+
+
+  <!--<import src="../bottom/bottom.wxml"/>
+  <template is="bottom" data="{{condition:2}}"></template>-->
+
+

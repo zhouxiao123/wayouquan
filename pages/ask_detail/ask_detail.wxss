@@ -1,0 +1,153 @@
+/* pages/ask_detail/ask_detail.wxss */
+.ask-content{
+  margin-top:28rpx;
+  margin-left:20rpx;
+  margin-right:20rpx
+}
+.answer-content{
+  display: flex;
+  align-items: center
+}
+.topHead{
+  display: flex;
+  justify-content: space-between
+}
+.head-right{
+  margin-left:20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.ask-content{
+  margin-top:28rpx;
+  margin-left:20rpx;
+  margin-right:20rpx
+}
+
+
+.ask-bar{
+  border-bottom:4rpx solid #eaeaea;
+  margin-top:30rpx
+}
+
+.ask-text{
+  font-size: 36rpx; 
+  font-family:黑体;
+  color:#343434;
+  margin-left:40rpx
+}
+
+.answer-content{
+  margin-top:40rpx;
+  display:flex;
+  align-items:center;
+  margin-left:20rpx
+}
+
+.listen-content{
+  display:flex;
+  align-items: center
+}
+
+.intro-right-content{
+
+  display:flex;
+  align-items:center;
+  justify-content: center
+  
+}
+.time-text{
+  margin-left:20rpx;
+  font-size: 0.6rem; 
+  font-family:Microsoft YaHei;
+  color:#a7a6a6;
+}
+
+.center-text{
+  position: absolute;
+  left :140rpx;
+  width:240rpx;
+  height:50rpx;
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+
+.img-text{
+  font-size: 0.76rem; 
+  font-family:Microsoft YaHei;
+  color:#fff;
+}
+
+
+.img-img{
+  margin-right:20rpx
+  
+}
+
+.intro-content{
+  margin-top:20rpx;
+  margin-bottom:16rpx;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-left:20rpx;
+  margin-right:20rpx;
+  
+}
+
+.name-text{
+  font-size: 0.6rem; 
+  font-family:Microsoft YaHei;
+  color:#3e3d3d;
+}
+
+.sep-text{
+  font-size: 0.4rem; 
+  font-family:Microsoft YaHei;
+  color:#7b7a7a;
+  margin-left:10rpx;
+  margin-right:10rpx;
+}
+
+.detail-text{
+  font-size: 0.6rem; 
+  font-family:Microsoft YaHei;
+  color:#7b7a7a;
+  text-overflow: ellipsis;
+  width:440rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  white-space: nowrap;
+
+
+}
+
+.number-text{
+  font-size: 0.6rem; 
+  font-family:Microsoft YaHei;
+  margin-left:12rpx
+}
+.talk_back{
+  background-color:#fff;
+  height:100rpx;
+  display: flex;
+  align-items: center;
+  position:fixed;
+  bottom:0
+}
+
+
+.talk_box{
+  height:60rpx;
+  
+  margin-left:65rpx;
+  border-radius: 30rpx;
+  background-color:#f0f0f0; 
+  display: flex;
+  align-items: center;
+}
+.df{
+  display:flex;margin-top:20rpx;margin-left:20rpx;align-items: center;
+}

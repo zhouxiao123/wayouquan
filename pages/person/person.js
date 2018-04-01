@@ -231,5 +231,25 @@ Page({
    wx.navigateTo({
      url: '/pages/my_excavator/my_excavator',
    })
+ }, onShareAppMessage: function (res) {
+   var that = this
+   wx.showLoading({
+     mask: true,
+     title: '加载中'
+   })
+
+   return {
+     title: '您的好友邀请您加入挖友圈',
+     path: '/pages/register/register?invited=' + that.data.user.cell_phone,
+     imageUrl:'https://app.wayouquan.com/newexcavator/assets/images/wyqLogo.png',
+     success: function (res) {
+       // 转发成功
+       wx.hideLoading()
+     },
+     fail: function (res) {
+       // 转发失败
+       wx.hideLoading()
+     }
+   }
  }
 })

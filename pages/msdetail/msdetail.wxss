@@ -6,8 +6,19 @@
   justify-content: space-between;
   align-items: center
 }
-
-
+.answer-content{
+  display: flex;
+  align-items: center
+}
+.topHead{
+  display: flex;
+  justify-content: space-between
+}
+.head-right{
+  margin-left:20rpx;
+  display: flex;
+  flex-direction: column;
+}
 .header{
   margin-top:20rpx;
   display: flex;

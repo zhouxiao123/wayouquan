@@ -21,6 +21,11 @@ Page({
    */
   onLoad: function (options) {
     var that =this
+    if(options.invited!=null){
+      that.setData({
+        invited: options.invited
+      })
+    }
     var value = wx.getStorageSync('oid')
 
     if (value) {
@@ -113,6 +118,11 @@ Page({
   
   },
 
+  toHome:function () {
+    wx.reLaunch({
+      url: '/pages/home/home',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

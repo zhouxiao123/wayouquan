@@ -20,6 +20,10 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"current": -1,
 			"list": []
@@ -68,6 +72,24 @@
 					"name": "我发布的",
 					"pathName": "pages/my_excavator/my_excavator",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "举报",
+					"pathName": "pages/jubao/jubao",
+					"query": "id=2318"
+				},
+				{
+					"id": -1,
+					"name": "举报",
+					"pathName": "pages/ask/ask",
+					"query": "id=2318"
+				},
+				{
+					"id": 9,
+					"name": "留言详情",
+					"pathName": "pages/ask_detail/ask_detail",
+					"query": "id=1"
 				}
 			]
 		}

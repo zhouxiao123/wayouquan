@@ -12,7 +12,15 @@ Page({
   m:{},
   coflag:1,
   oid:'',
-  fromtag: 0
+  fromtag: 0,
+  own:0,
+  askList:[],
+  user: {},
+  //下拉加载
+  hasMore: true,
+  pageOffset: 0,
+  pageSize: 10,
+  opacityflag: 0,
   },
 
   /**
@@ -28,6 +36,12 @@ Page({
     if(options.from=="user"){
       that.setData({
         fromtag:1
+      })
+    }
+    if (options.from == "own") {
+      that.setData({
+        fromtag: 1,
+        own:1
       })
     }
     var value = wx.getStorageSync('oid')
@@ -82,6 +96,22 @@ Page({
         }
       })
     }
+
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/getUserDetail',
+      data: {
+        oid: that.data.oid
+      },
+      success: function (res) {
+        wx.hideLoading()
+        //console.log(res.data)
+        if (res.data.info == "ok") {
+          that.setData({
+            user: res.data.user
+          })
+        }
+      }
+    })
     //console.log(that.data.id + "------" + that.data.type)
     wx.showLoading({
       mask: true,
@@ -146,7 +176,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    //console.log(e.detail.value)
+    var that = this;
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/mobile/ask_list',
+      data: {
+        m_id:that.data.id
+      },
+      success: function (res) {
+        //console.log(res.data);
+       wx.hideLoading()
+       for (var i in res.data.askList) {
+    
+         res.data.askList[i].createtime = transDate(res.data.askList[i].createtime,true)
+       }
+          that.setData({
+            askList: res.data.askList
+          })
+
+      }
+    })
   },
 
   /**
@@ -169,12 +222,108 @@ Page({
   onPullDownRefresh: function () {
   
   },
+  delAsk:function(e){
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否确认删除',
+      showCancel: true,
+      success: function (res) {
+        if(res.confirm){
+          wx.showLoading({
+            mask: true,
+            title: '加载中'
+          })
+          //console.log(e.detail.value)
+          
+          wx.request({
+            url: app.globalData.baseUrl + 'wx/mobile/ask_delete',
+            data: {
+              id: e.currentTarget.dataset.id
+            },
+            success: function (res) {
+              wx.hideLoading()
+              //console.log(res.data);
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+                duration: 1000
+              }) 
+              wx.request({
+                url: app.globalData.baseUrl + 'wx/mobile/ask_list',
+                data: {
+                  m_id: that.data.id
+                },
+                success: function (res) {
+                  //console.log(res.data);
 
+                  
+                  for (var i in res.data.askList) {
+
+                    res.data.askList[i].createtime = transDate(res.data.askList[i].createtime, true)
+                  }
+                  that.setData({
+                    askList: res.data.askList
+                  })
+
+                }
+              })
+              
+
+
+            }
+          })
+        }
+      }
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var that = this
+    that.setData({
+      hasMore: true,
+      opacityflag: 1
+    })
+
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    var poff = parseInt(that.data.pageOffset) + parseInt(that.data.pageSize);
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/mobile/ask_list',
+      data: {
+        pageOffset: poff,
+        pageSize: that.data.pageSize,
+        m_id: that.data.id
+      },
+      success: function (res) {
+        //console.log(res.data)
+        if (res.data.askList.length == 0) {
+          that.setData({
+            hasMore: false,
+          })
+        } else {
+
+          for (var i in res.data.askList) {
+
+            res.data.askList[i].createtime = transDate(res.data.askList[i].createtime, true)
+          }
+
+          that.data.askList = that.data.askList.concat(res.data.askList)
+          that.setData({
+            askList: that.data.askList,
+            pageOffset: poff,
+            opacityflag: 0
+          })
+        }
+        wx.hideLoading()
+
+
+      }
+    })
   },
   makePhone:function(e){
     var that = this
@@ -289,6 +438,23 @@ Page({
 
 
     }
+  },
+  jubao:function(){
+    wx.navigateTo({
+      url: '/pages/jubao/jubao?id='+this.data.m.id
+    })
+  }
+  ,
+  ask: function () {
+    wx.navigateTo({
+      url: '/pages/ask/ask?id=' + this.data.m.id
+    })
+  }
+  , ask_detail:function(e){
+    //console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/ask_detail/ask_detail?id=' + e.currentTarget.dataset.id
+    })
   },
   onShareAppMessage: function (res) {
     var that = this

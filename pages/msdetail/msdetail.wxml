@@ -95,7 +95,7 @@
         <view class="td-l">机主描述：</view>
         <view class="td-r">{{m.description}}</view>
       </view>
-      <view class="tr" wx:if="{{type=='own'}}">
+      <view class="tr" wx:if="{{1==own}}">
         <view class="td-l">当前状态：</view>
         <view class="td-r" wx:if="{{m.verify==0}}">待审核</view>
         <view class="td-r" wx:if="{{m.verify==1}}">审核通过</view>
@@ -120,35 +120,34 @@
      <image style='width:650rpx;margin:20rpx 50rpx' src="https://app.wayouquan.com/newexcavator/img/{{adv.img_path}}" mode='widthFix'/>
   <!--</a>-->
 <view class="footButton">
-  <button catchtap='preStep' class="nbutton">留言</button>
-  <button catchtap='nextStep2' class="jbutton">举报</button>
+  <button catchtap='ask' class="nbutton">留言</button>
+  <button catchtap='jubao' class="jbutton">举报</button>
 </view>
 
 <view class="ask-content">
-<view wx:for="{{askList}}" class="ask-bar" data-id="{{item.askId}}" bindtap="ask_detail">
+<view wx:for="{{askList}}" class="ask-bar" data-id="{{item.id}}" bindtap="ask_detail">
+    <view class="topHead">
         <view class="answer-content">
-          <image src="{{item.issecret==1?'../../images/personal/-rtx@2x.png':item.u.headUrl}}" style="width:80rpx;height:80rpx;border-radius: 50%;"></image>
-    <text style="color:#777;font-family:黑体;margin-left:20rpx;font-size:28rpx">{{item.issecret==1?'匿名用户':item.u.nickName}}</text>
+          <image src="{{item.user.head}}" style="width:80rpx;height:80rpx;border-radius: 50%;"></image>
+          <view class="head-right">
+    <text style="color:#777;font-family:黑体;font-size:28rpx">{{item.user.name}}</text>
+    <text style="font-family:黑体;color:#a7a6a6;font-size: 0.7rem;">{{item.createtime}}</text>
+    </view>
 
         </view>
-        <text class="ask-text" style="margin-top:30rpx;display:block">{{item.askContent}}</text>
-
-        <view class="intro-content">
-          <view class="intro-right-content">
-              <text style="font-family:黑体;color:#a7a6a6;font-size: 0.7rem;">{{item.createTime}}</text>
-          </view>
-
-          <view class="intro-right-content">
-            <view class="intro-right-content">
-              <image src="../../images/eye71.png" style="width:30rpx" mode='widthFix'></image>
-              <text style="display:inline-block;height:30rpx;width:60rpx;margin-left:10rpx;font-size: 0.6rem;font-family:Microsoft YaHei;">{{item.count}}</text>
-            </view>  
+          <view class="intro-right-content"> 
+          <text wx:if="{{user!=null && (user.id==item.userid || user.id==m.user_id)}}" catchtap='delAsk' class="number-text" data-id="{{item.id}}" style="margin-right:20rpx;color:red">删除</text>
             <text class="number-text" style="margin-left:10rpx">回复({{item.answercount}})</text>
           </view>
-        </view>
+
+    </view>
+    <view style="margin-bottom:20rpx">
+        <text class="ask-text" style="margin-top:30rpx;display:block">{{item.content}}</text>
+
+</view>
       </view>
 
-<!--测试数据-->
+<!--测试数据
       <view class="ask-bar"  >
         <view class="answer-content">
           <image src="/images/-rtx@2x.png" style="width:80rpx;height:80rpx;border-radius: 50%;"></image>
@@ -167,8 +166,12 @@
             <text class="number-text" style="margin-left:10rpx">回复(0)</text>
           </view>
         </view>
-      </view>
-
+      </view>-->
+<view  animation="{{animationData}}" class="tips1" style="opacity:{{opacityflag}};margin-top:30rpx">
+ <view wx:if="{{hasMore}}" style="text-align: center;">
+ <icon type="download" size="25"/><text style="font-family:黑体;font-size:0.8rem;color:#666">玩命的加载中...</text></view>
+ <view style="text-align: center;" wx:else><text style="font-family:黑体;font-size:0.8rem;color:#666;">没有更多内容了</text></view>
+</view>
       
     </view>
 

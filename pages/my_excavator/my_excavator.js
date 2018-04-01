@@ -118,7 +118,7 @@ Page({
   },
   toDetail: function (e) {
     wx.navigateTo({
-      url: '../msdetail/msdetail?id=' + e.currentTarget.dataset.id,
+      url: '../msdetail/msdetail?id=' + e.currentTarget.dataset.id +"&from=own",
     })
   },
   /**

@@ -1,4 +1,4 @@
-// pages/jubao/jubao.js
+// pages/ask/ask.js
 var app = getApp()
 Page({
   data: {
@@ -17,26 +17,27 @@ Page({
     lecturer: {},
     lecturerList: [],
     tag: 0,
-    id:0,
     oid: '',
+    id:0,
     preid: 0,
     askList: [],
-    search_name: ''
+    search_name: '',
+    //下拉加载
+    hasMore: true,
+    pageOffset: 0,
+    pageSize: 20,
+    opacityflag: 0
+
   },
   onLoad: function (options) {
-    
-    wx.setNavigationBarTitle({ title: "举报" })
-    var animation = wx.createAnimation({
-      duration: 100,
-      timingFunction: 'ease',
-    })
-    this.animation = animation
+    wx.setNavigationBarTitle({ title: "留言" })
 
     var that = this
 
-    that.setData({
-      id:options.id
-    })
+      that.setData({
+        id: options.id
+      })
+
 
     var value = wx.getStorageSync('oid')
     //console.log(value)
@@ -74,7 +75,7 @@ Page({
               }
             })
           } else {
-            //console.log('获取用户登录态失败！' + res.errMsg)
+            console.log('获取用户登录态失败！' + res.errMsg)
             wx.showModal({
               title: '提示',
               content: '获取用户登录状态失败',
@@ -93,16 +94,16 @@ Page({
     }
 
 
-
-
-  },
+    
+  }
+  
+  ,
   formSubmit: function (e) {
     //console.log('form发生了submit事件，携带数据为：', e.detail.value.text.length)
-    var that = this
     if (e.detail.value.content.length == "0") {
       wx.showModal({
         title: '提示',
-        content: '举报内容不可为空',
+        content: '留言内容不可为空',
         showCancel: false,
         success: function (res) {
           if (res.confirm) {
@@ -114,15 +115,6 @@ Page({
         }
       })
       return false;
-    } else if (e.detail.value.id==0){
-      wx.showModal({
-        title: '提示',
-        content: '举报出错,请退出重试',
-        showCancel: false,
-        success: function (res) {
-        }
-      })
-      return false;
     }
     wx.showLoading({
       mask: true,
@@ -131,7 +123,7 @@ Page({
     //console.log(e.detail.value)
     var that = this;
     wx.request({
-      url: app.globalData.baseUrl + 'wx/mobile/jubao_save',
+      url: app.globalData.baseUrl + 'wx/mobile/ask_save',
       data: e.detail.value,
       method: 'POST',
       header: {
@@ -139,6 +131,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
+        //console.log(res.data);
         wx.hideLoading()
         if (res.data.info == "not") {
           wx.showModal({
@@ -154,20 +147,29 @@ Page({
         } else {
           wx.showModal({
             title: '提示',
-            content: '举报已收到，我们将会尽快处理',
+            content: '留言成功',
             showCancel: false,
             success: function (res) {
-              wx.navigateBack()
+              wx.navigateBack({
+              })
             }
           })
-        }
-      }
+        }         
 
-
+       }
     })
+              
   }
-
-
-
-
 })
+
+function transDate(mescStr) {
+  var n = mescStr;
+  var date = new Date(n);
+  var Y = date.getFullYear() + '-';
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+  var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+  return (Y + M + D + ' ' + hour + ':' + minute)
+}
