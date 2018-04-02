@@ -1,7 +1,7 @@
 <!--index.wxml-->
-<view class="index-title">
+<!--<view class="index-title">
   <text style="color:#fff;font-size:33rpx;margin:20rpx">挖友圈</text>
-</view>
+</view>-->
 <swiper indicator-dots="true"
   autoplay="true" interval="3000" duration="500" style="height:480rpx">
   
@@ -26,13 +26,14 @@
       二手装载机
     </view>
 </view>
+<view style="background:#f3f3f3;height:30rpx"></view>
 
 <view class="tag-list2" style="display:{{tag==0?'flex':'none'}}">
     <view class="tag-view2"  >
       挖掘机
     </view> 
-    <view class="tag-view2" data-type="1" catchtap='more'>
-      更多
+    <view class="tag-view2 t-right" data-type="1" catchtap='more'>
+      查看更多
     </view>
 </view>
 
@@ -40,18 +41,19 @@
     <view class="tag-view2"  >
       装载机
     </view> 
-    <view class="tag-view2" data-type="2"  catchtap='more'>
-      更多
+    <view class="tag-view2 t-right" data-type="2"  catchtap='more'>
+      查看更多
     </view>
 </view>
 
-<view style="margin-top:40rpx;display:{{tag==0?'block':'none'}}">
+<view style="background:#f3f3f3;padding-top:20rpx;display:{{tag==0?'block':'none'}}">
   <view class="index-list" data-type="2" data-id="{{item.id}}" catchtap='toDetail' wx:for="{{ms1}}">
       <view>
       <image wx:if="{{item.isNew == 1}}" src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
-      <image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
-      <view style="text-align:center;width:180rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
-      <view style="text-align:center;width:180rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">{{item.p_name}}<text style="margin-left:10rpx;color:#ff7f21">{{item.price}}万</text></view>
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:360rpx;height:272rpx" ></image></view>
+      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:32rpx;margin-top:20rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
+      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999;margin-top:10rpx;">{{item.p_name}}-{{item.c_name}}</view>
+  <view style="margin-top:10rpx;padding-bottom:20rpx;text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999"><text style="margin-left:10rpx;color:#ff7f21">￥{{item.price}}万</text></view>
   </view>
 
   
@@ -59,13 +61,14 @@
 
 </view>
 
-<view style="margin-top:40rpx;display:{{tag==1?'block':'none'}}">
-  <view class="index-list" wx:for="{{ms2}}" data-type="2" data-id="{{item.id}}" catchtap='toDetail'>
+<view style="background:#f3f3f3;padding-top:20rpx;display:{{tag==1?'block':'none'}}">
+  <view class="index-list" data-type="2" data-id="{{item.id}}" catchtap='toDetail' wx:for="{{ms2}}">
       <view>
-                  <image wx:if="{{item.isNew == 1}}" src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
-      <image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:180rpx;height:136rpx" ></image></view>
-      <view style="text-align:center;width:180rpx;height:32rpx;line-height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
-      <view style="text-align:center;width:180rpx;height:32rpx;line-height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999">{{item.p_name}}<text style="margin-left:10rpx;color:#ff7f21">{{item.price}}万</text></view>
+      <image wx:if="{{item.isNew == 1}}" src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}" style="width:360rpx;height:272rpx" ></image></view>
+      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:32rpx;margin-top:20rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
+      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999;margin-top:10rpx;">{{item.p_name}}-{{item.c_name}}</view>
+  <view style="margin-top:10rpx;padding-bottom:20rpx;text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999"><text style="margin-left:10rpx;color:#ff7f21">￥{{item.price}}万</text></view>
   </view>
 
   

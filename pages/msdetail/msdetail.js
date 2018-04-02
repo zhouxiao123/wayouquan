@@ -301,7 +301,7 @@ Page({
       },
       success: function (res) {
         //console.log(res.data)
-        if (res.data.askList.length == 0) {
+        if (res.data.askList==null || res.data.askList.length == 0) {
           that.setData({
             hasMore: false,
           })

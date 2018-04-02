@@ -6,6 +6,39 @@
   justify-content: space-between;
   align-items: center
 }
+.m-detail{
+  margin-left:50rpx;
+  font-size:28rpx;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  color:#aaa;
+  font-family: 微软雅黑
+
+}
+.title-left-desc{
+  color:#aaa;
+  font-size: 28rpx;
+  font-family: 微软雅黑;
+  margin-top:20rpx;
+  word-break:break-all;
+}
+.head-title{
+  margin-left:40rpx;
+  display:flex;
+align-items: center
+}
+.title-left{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width:540rpx
+}
+.title-right{
+  margin-right:20rpx;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start
+}
 .answer-content{
   display: flex;
   align-items: center
@@ -30,6 +63,7 @@
 .header-share{
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
   align-items: center;
 }
 .title{
@@ -43,11 +77,16 @@
   align-items: center
 }
 .foot{
-      background: #5fb7f6;
+      background: #f7856a;
     position: fixed;
     bottom: 0;
     height:80rpx;
     width:100%
+}
+.foot-df{
+  display:flex;
+  justify-content: space-between;
+  align-items: center
 }
 
 .foot-text-l{
@@ -60,7 +99,8 @@
 
 .makecall{
       
-display:inline-block;
+display:flex;
+align-items: center;
 
 margin-right:20rpx
 }
@@ -86,37 +126,32 @@ margin-right:20rpx
       
     color: #888686;
      font-family:微软雅黑;
-         border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     width:650rpx;
     margin:0 auto;
-    text-align:center
+
 
 }
 .tr{
   display:flex;
-  justify-content: center;
+height:80rpx;
   align-items: center;  
-      border-left: 1px solid #ccc;
+
     border-top: 1px solid #ccc;
-  min-height:40rpx
 }
 .td-l{
 display:flex;
-width:325rpx;
-    font-size: 26rpx;
-    border-right: 1px solid #ccc;
+width:250rpx;
+    font-size: 32rpx;
+
     font-weight: bold;
-  justify-content: center;
-  align-items: center;  
-  height:100%
+
 }
 .td-r{
   display:flex;
-  width:325rpx;
-      font-size: 26rpx;
-      justify-content: center;
-  align-items: center;  
+  width:400rpx;
+      font-size: 32rpx;
+
 }
 .hide-button{
   border: 0;
@@ -132,42 +167,47 @@ border: none;
 }
 
 .nbutton{
-  width: 200rpx;
-    height: 60rpx;
+  width: 300rpx;
+    height: 80rpx;
     background: #1ca1fe;
     color: #fff;
     border-radius: 10rpx;
-    font-size:28rpx;
-    line-height:60rpx
+    font-size:32rpx;
+    line-height:80rpx
 }
 .jbutton{
-    width: 200rpx;
-    height: 60rpx;
-    border:1px solid #888686;
+    width: 300rpx;
+    height: 80rpx;
+    border:1px solid #ddd;
     background: #fff;
-    color: #1ca1fe;
+    color: #222;
     border-radius: 10rpx;
-    font-size:28rpx;
-    line-height:60rpx
+    font-size:32rpx;
+    line-height:80rpx
 }
 
 
 .footButton{
-  margin-top:40rpx;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
   display:flex;
-  align-items: center
+  align-items: center;
+  background:#f3f3f3;
 }
 
 .ask-content{
   margin-top:28rpx;
-  margin-left:30rpx;
-  margin-right:30rpx;
-  border-top:1px solid #888686
+
+border-bottom:1rpx solid #eaeaea;
+  
 }
 
 .ask-bar{
-  border-bottom:4rpx solid #eaeaea;
-  margin-top:30rpx
+  border-top:1rpx solid #eaeaea;
+  
+  padding-top:20rpx;
+    margin-left:50rpx;
+  margin-right:50rpx;
 }
 
 .ask-text{

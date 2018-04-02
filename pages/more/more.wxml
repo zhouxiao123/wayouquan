@@ -7,65 +7,62 @@
 </view>
 
 
-  <view style="text-align:center;font-size:32rpx;font-family:微软雅黑;color:#777;font-weight:bold;margin-top:20rpx">{{type_name}}   </view>
+
 
   <view class="search">
-    <input style="font-family:'微软雅黑'; color:#666;display:inline-block" bindinput="setValue" value="{{search_name}}"></input>
-    <image src="https://app.wayouquan.com/newexcavator/assets/images/search.jpg" style="width:40rpx;margin-right:20rpx" mode='widthFix' bindtap='search'></image>
+    <input style="font-family:'微软雅黑'; color:#666;display:inline-block;width:680rpx;font-size:30rpx" bindinput="setValue" placeholder-class='search-hold' placeholder='搜索' value="{{search_name}}"></input>
+    <image src="/images/search.png" style="width:40rpx;margin-right:20rpx" mode='widthFix' bindtap='search'></image>
   </view>
 
   <view class="tag-list">
-    <view class="tag-view {{tag==0?'on t-on':''}}" data-current="0" catchtap="swichNav" >
-      <picker name="type" bindchange="bindTypeChange" range-key="name"   range="{{typelist}}">
+    <view class="tag-view" data-current="0" catchtap="swichNav" >
+      <picker name="type"  bindchange="bindTypeChange" range-key="name"   range="{{typelist}}">
         <view class="picker radio-text">
-        {{type_name}}
+        <text>{{type_name}}</text><image style="margin-left:10rpx;width:20rpx" mode='widthFix' src="/images/Arrow.png"/>
         </view>
       </picker>
   
     </view> 
-    <view class="tag-view {{tag==1?'on t-on':''}}" data-current="1" catchtap="swichNav" >
+    <view class="tag-view" data-current="1" catchtap="swichNav" >
       <picker name="city" range-key="name" bindchange="bindCityChange"  range="{{city}}">
         <view class="picker radio-text">
-        {{city_name}}
+        <text>{{city_name}}</text><image style="margin-left:10rpx;width:20rpx" mode='widthFix' src="/images/Arrow.png"/>
         </view>
       </picker>
     </view>
-    <view class="tag-view {{tag==2?'on t-on':''}}" data-current="2" catchtap="swichNav" >
+    <view class="tag-view-e" data-current="2" catchtap="swichNav" >
       <picker name="brand" range-key="name" bindchange="bindBrandChange"  range="{{brand}}" >
         <view class="picker radio-text">
-        {{brand_name}}
+        <text>{{brand_name}}</text><image style="margin-left:10rpx;width:20rpx" mode='widthFix' src="/images/Arrow.png"/>
         </view>
       </picker>
     </view>
   </view>
 
-  <view style="font-size:28rpx;font-family:微软雅黑;color:#777;font-weight:bold;margin-top:20rpx;">
-    <text style="margin-left:40rpx">挖友圈</text>
-    <text style="margin-left:20rpx">></text>
-    <text style="margin-left:20rpx">{{type_name}}</text>
-  </view>
+
 
   <view style="background:#fff;margin-top:20rpx">
 
-  <view wx:for="{{data.ms}}" data-id="{{item.id}}" catchtap='toDetail' style="border-bottom:1px solid #999;padding-top:20rpx;">
+  <view wx:for="{{data.ms}}" data-id="{{item.id}}" catchtap='toDetail' style="border-bottom:1px solid #ddd;padding-top:20rpx;">
     <view class="list-content">
       <!--<a href="/newexcavator/mobile/detail?id=2282#mp.weixin.qq.com">-->
-      <view style="margin-left:50rpx;width:200rpx">
+      <view style="margin-left:20rpx;width:200rpx">
         <image wx:if="{{item.isNew == 1}}"  src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
         <image style="width:200rpx;height:140rpx" src="https://app.wayouquan.com/newexcavator/img/{{item.cover_path}}"/>
         </view>
             <view style="margin-left:30rpx;word-break:break-all;width:470rpx" class="listR1">
               <text class="h4">{{item.brand_name+'_'+item.version_name+'【'+item.buy_date+'年】'}}</text>
               <text class="time">{{item.used_time}}小时</text>
-              <text class="price">{{item.price}}万</text>              
-              <text class="address">{{item.p_name}} {{item.c_name}}</text>
+                           
+              <text class="address">{{item.p_name}} {{item.c_name}} {{item.create_time}}</text>
+            <view class="time0">
+               <text class="price">￥{{item.price}}万</text> 
+            </view>
               </view>
             <!--<div class="clr"></div>-->
     <!--</a>-->
   </view>
-              <view class="time0">
-               <text>{{item.create_time}}</text>
-            </view>
+
 </view>
 
 

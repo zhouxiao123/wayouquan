@@ -37,9 +37,7 @@
 
 .tag-view{
   text-align: center;
-  border-left:1px solid #999;
-  border-right:1px solid #999;
-  border-bottom:1px solid #999;
+
     display:flex;
     width:375rpx;
     padding-top:20rpx;
@@ -51,15 +49,15 @@
 }
 
 .on{
-  border-bottom: 2px solid #59c9b9;
+  background:#f3f3f3
 }
 .t-on{
-  color:#59c9b9;
+  color:#4b4c4c;
 }
 
 .tag-list2{
 
-  border: 1px solid #999;
+  
   display: flex;
   justify-content: space-between;
   
@@ -75,10 +73,13 @@
   color:#4b4c4c;
   font-size:34rpx
 }
+.t-right{
+  color:#888
+}
 .index-list{
-  width:180rpx;
-  margin-left:35rpx;
-  margin-right:35rpx;
+  width:360rpx;
+  margin-left:10rpx;
+background:#fff;
   display:inline-block;
-  margin-bottom:60rpx
+  margin-bottom:10rpx
 }
