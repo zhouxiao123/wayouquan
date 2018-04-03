@@ -17,7 +17,8 @@
     "pages/ask/ask",
     "pages/ask_detail/ask_detail",
     "pages/bottom/bottom",
-    "pages/change_com/chang_com"
+    "pages/change_com/chang_com",
+    "pages/person_info/person_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

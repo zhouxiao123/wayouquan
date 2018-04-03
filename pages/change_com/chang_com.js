@@ -6,7 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-  cos:[]
+  cos:[],
+      //下拉加载
+    hasMore: true,
+  pageOffset: 0,
+  pageSize: 10,
+  opacityflag: 0,
   },
 
   /**
@@ -28,9 +33,11 @@ Page({
         for (var i in res.data.cos) {
           res.data.cos[i].path = res.data.cos[i].path.replace('.', '_S.')
         }
+
         that.setData({
-          com: res.data.cos 
+          cos: res.data.cos 
         })
+
 
         wx.hideLoading()
       }
@@ -71,12 +78,53 @@ Page({
    */
   onPullDownRefresh: function () {
   
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  },// 上拉加载回调接口
   onReachBottom: function () {
-  
+    // 我们用total和count来控制分页，total代表已请求数据的总数，count代表每次请求的个数。
+    // 上拉时需把total在原来的基础上加上count，代表从count条后的数据开始请求。
+    var that = this
+    that.setData({
+      hasMore: true,
+      opacityflag: 1
+    })
+
+    wx.showLoading({
+      mask: true,
+      title: '加载中'
+    })
+    var poff = parseInt(that.data.pageOffset) + parseInt(that.data.pageSize);
+    wx.request({
+      url: app.globalData.baseUrl + 'wx/mobile/change_commodity',
+      data: {
+        pageOffset: poff,
+        pageSize: that.data.pageSize,
+        
+      },
+      success: function (res) {
+        //console.log(res.data)
+        if (res.data.cos.length == 0) {
+          that.setData({
+            hasMore: false,
+          })
+        } else {
+
+          for (var i in res.data.cos) {
+            res.data.cos[i].path = res.data.cos[i].path.replace('.', '_S.')
+            
+          }
+
+          that.data.cos = that.data.cos.concat(res.data.cos)
+          that.setData({
+            cos: that.data.cos,
+            pageOffset: poff,
+            opacityflag: 0
+          })
+        }
+        wx.hideLoading()
+
+
+      }
+    })
+
   }
 })

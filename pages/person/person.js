@@ -270,5 +270,10 @@ Page({
    /*wx.navigateTo({
      url: '/pages/person/person',
    })*/
+ },
+ toPersonInfo:function(){
+   wx.navigateTo({
+     url: '/pages/person_info/person_info',
+   })
  }
 })

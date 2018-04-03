@@ -3,7 +3,12 @@
       <view>
 
       <image src="https://app.wayouquan.com/newexcavator/img/{{item.path}}" style="width:360rpx;height:272rpx" ></image></view>
-      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:32rpx;margin-top:20rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.brand_name}}_{{item.version_name}}</view>
-      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999;margin-top:10rpx;">{{item.p_name}}-{{item.c_name}}</view>
-  <view style="margin-top:10rpx;padding-bottom:20rpx;text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999"><text style="margin-left:10rpx;color:#ff7f21">￥{{item.price}}万</text></view>
+      <view style="text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:32rpx;margin-top:20rpx;overflow:hidden;font-family:微软雅黑;font-weight:bold">{{item.name}}</view>
+
+  <view style="margin-top:10rpx;padding-bottom:20rpx;text-align:center;width:360rpx;line-height:32rpx;height:32rpx;font-size:28rpx;overflow:hidden;font-family:微软雅黑;word-break:break-all;white-space:nowrap;color:#999"><text style="margin-left:10rpx;color:#ff7f21">积分{{item.point}}</text></view>
   </view>
+<view  animation="{{animationData}}" class="tips1" style="opacity:{{opacityflag}}">
+ <view wx:if="{{hasMore}}" style="text-align:center">
+ <icon type="download" size="25"/><text style="font-family:黑体;font-size:0.8rem;color:#666">玩命的加载中...</text></view>
+ <view style="text-align:center" wx:else><text style="font-family:黑体;font-size:0.8rem;color:#666;">没有更多内容了</text></view>
+</view>

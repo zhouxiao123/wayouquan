@@ -1,0 +1,17 @@
+<!--pages/person_info/person_info.wxml-->
+<view style="background:#f3f3f3;height:40rpx"></view>
+
+<view class="add-view">
+  <text class="add-text">用户名</text>
+  <input class="input-text" name="name" value="{{name}}"  bindinput="setValue"/>
+  
+</view>
+
+<view class="add-view">
+  <text class="add-text">手机号</text>
+  <input class="input-text" disabled='true'  value="{{user.cell_phone}}"/>
+  
+</view>
+<view style="margin-top:40rpx">
+  <button catchtap='saveUser' class="nbutton">保存</button>
+</view>
