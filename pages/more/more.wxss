@@ -1,4 +1,8 @@
 /* pages/more/more.wxss */
+@import "/pages/bottom/bottom.wxss";
+page{
+  background:#f3f3f3
+}
 .more-title{
   height:60rpx;
   background:#1da1ff;
@@ -102,24 +106,27 @@ height:60rpx;
 }
 .time{
   color: #9b9b9b;
-  font-size:28rpx;
+  font-size:24rpx;
 }
 .price{
-  color: #ff7f21;
-  font-size:38rpx;
+  color: #ff856d;
+  font-size:32rpx;
   margin-top:5rpx;
-margin-left:30rpx
+
 }
 .address{
   color: #9b9b9b;
-  font-size:28rpx;
+  font-size:24rpx;
   margin-top:5rpx;
   display:block
 }
 .time0{
-  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width:140rpx;
+margin-bottom:20rpx;
   color: #666;
   font-size:24rpx;
-  margin-right:20rpx;
-  margin-bottom:20rpx
+  margin-right:20rpx
 }

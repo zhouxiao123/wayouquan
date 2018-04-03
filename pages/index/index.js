@@ -110,5 +110,20 @@ Page({
     wx.navigateTo({
       url: '../msdetail/msdetail?type=' + e.currentTarget.dataset.type + "&id=" + e.currentTarget.dataset.id,
     })
+  },
+  mainIndex:function(){
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
+  },
+  typeIndex: function () {
+    wx.reLaunch({
+      url: '/pages/more/more?type=0',
+    })
+  },
+  personalIndex: function () {
+    wx.navigateTo({
+      url: '/pages/person/person',
+    })
   }
 })

@@ -219,6 +219,10 @@ Page({
    wx.navigateTo({
      url: '/pages/add_excavator/add_excavator',
    })
+ }, toChange:function(){
+   wx.navigateTo({
+     url: '/pages/change_com/chang_com',
+   })
  },toRank:function(){
    wx.navigateTo({
      url: '/pages/rank/rank',
@@ -251,5 +255,20 @@ Page({
        wx.hideLoading()
      }
    }
+ },
+ mainIndex: function () {
+   wx.reLaunch({
+     url: '/pages/index/index',
+   })
+ },
+ typeIndex: function () {
+   wx.reLaunch({
+     url: '/pages/more/more?type=0',
+   })
+ },
+ personalIndex: function () {
+   /*wx.navigateTo({
+     url: '/pages/person/person',
+   })*/
  }
 })

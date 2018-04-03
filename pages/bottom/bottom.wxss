@@ -1,0 +1,32 @@
+/* bottom.wxss */
+
+.bottom-tag{
+  position:fixed;
+  bottom:0px;
+  background-color:#fff;
+  width:750rpx;
+  height:100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  
+}
+
+.left-tag{
+padding-left:50rpx;
+}
+
+.right-tag{
+padding-right:50rpx
+}
+
+
+
+.bottom-text{
+  display:block;
+  text-align:center;
+  color:#7c7c7a;
+  margin-top:4rpx;
+  font-size:24rpx;
+}

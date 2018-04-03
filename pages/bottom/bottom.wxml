@@ -1,0 +1,20 @@
+<!--bottom.wxml-->
+<template name="bottom">
+<view class="bottom-tag">
+    <view class="left-tag" bindtap="mainIndex">
+      <image wx:if="{{condition==1}}"  src="/images/navbar_1_choosed.png" background-size="cover" style="width:48rpx;height:48rpx"/>
+      <image wx:if="{{condition!=1}}"  src="/images/navbar_1_normal.png" background-size="cover" style="width:48rpx;height:48rpx"/>
+      <text class="bottom-text">首页</text>
+    </view>
+    <view class="center-tag" bindtap="typeIndex">
+      <image wx:if="{{condition==2}}" src="/images/navbar_2_choosed.png" background-size="cover" style="display:block;width:48rpx;height:48rpx"/>
+            <image wx:if="{{condition!=2}}" src="/images/navbar_2_normal.png" background-size="cover" style="display:block;width:48rpx;height:48rpx" />
+      <text class="bottom-text mt10">分类</text>
+    </view>
+    <view class="right-tag" bindtap="personalIndex">
+      <image wx:if="{{condition==3}}" src="/images/navbar_3_choosed.png" background-size="cover" style="width:48rpx;height:48rpx"/>
+      <image wx:if="{{condition!=3}}" src="/images/navbar_3_normal.png" background-size="cover" style="width:48rpx;height:48rpx"/>
+      <text class="bottom-text">我的</text>
+    </view>
+  </view>
+</template>

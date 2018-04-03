@@ -2,16 +2,21 @@
 
 
   <view class="person-top">
-    <image src="https://app.wayouquan.com/newexcavator/assets/images/wyqLogo.png" style="width:170rpx" mode='widthFix'></image>
+  <view class="person-top-left">
+    <image src="{{userInfo.avatarUrl}}" style="width:120rpx;border-radius: 50%;" mode='widthFix'></image>
     <view class="person-top-right">
         <text class="text-one">{{user.name}}</text>
-        <text class="text-one">{{user.cell_phone}}</text>
-        <text class="text-one">积分 <text class="text-two">{{user.point}}</text></text>
+        <text class="text-two">{{user.cell_phone}}</text>
+        <text class="text-two">积分 <text class="text-two">{{user.point}}</text></text>
+
+    </view>
+    </view>
         <view class="button-content">
-          <text class="text-three">兑换商品</text>
+            <image src="/images/icon_duihuanshangpin.png" style="width:20rpx;margin-right:10rpx" mode='widthFix'></image>
+          <text class="text-three" catchtap='toChange'>兑换商品</text>
+            <image src="/images/icon_paihangbang.png" style="width:20rpx;margin-right:10rpx" mode='widthFix'></image>
           <text class="text-three" catchtap='toRank'>排行榜</text>
         </view>
-    </view>
   </view>
 
 
@@ -37,6 +42,7 @@
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
       </view>
       </view>
+<view style="background:#f3f3f3;height:30rpx"></view>
 
       <view catchtap='myCollect' class="menue-center">
         <text class="menue-text">我的收藏</text>
@@ -60,24 +66,26 @@
   </view>
 
 
-  <view style="padding:50px 0 0 0;margin:0 auto;">
+  <view style="padding:30px 0 100rpx 0;margin:0 auto;">
   <!--<view style="text-align:center;margin-bottom:10px">
 	<a href="http://www.sojump.com/jq/5058621.aspx">【提建议送挖掘机模型】</a>
   </view>-->  
-  <view style="font-size:28rpx;text-align:center">
+  <view class="bottomtext">
    	客服电话：028-85379570
   </view>
-  <view style="font-size:28rpx;text-align:center">
+  <view class="bottomtext">
    	QQ:968276
   </view>
-  <view style="font-size:28rpx;text-align:center">
+  <view class="bottomtext">
    	 微信:wjjjy666
   </view>
-  <view style="font-size:28rpx;text-align:center">
+  <view class="bottomtext">
    	 成都贝格畅斯科技有限公司
   </view>
   <!--<div style="text-align:center">
      <script src="http://s95.cnzz.com/stat.php?id=1255170654&amp;web_id=1255170654" language="JavaScript"></script><script src="http://c.cnzz.com/core.php?web_id=1255170654&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1255170654" target="_blank" title="站长统计">站长统计</a>
   </div>-->
 </view>
+  <import src="/pages/bottom/bottom.wxml"/>
+  <template is="bottom" data="{{condition:3}}"></template>
 

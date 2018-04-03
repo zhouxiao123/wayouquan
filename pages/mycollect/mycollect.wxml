@@ -1,10 +1,10 @@
 <!--pages/mycollect/mycollect.wxml-->
 <view style="background:#f3f3f3">
-<view class="more-title">
+<!--<view class="more-title">
 
   <text style="color:#fff;font-size:33rpx;margin:20rpx">我的收藏</text>
 
-</view>
+</view>-->
 
 
   <!--<view class="search">
@@ -15,25 +15,26 @@
 
   <view style="background:#fff;margin-top:20rpx">
 
-  <view wx:for="{{data.collectMachine}}" data-id="{{item.mi.id}}" catchtap='toDetail' style="border-bottom:1px solid #999;padding-top:20rpx;">
+  <view wx:for="{{data.collectMachine}}" data-id="{{item.mi.id}}" catchtap='toDetail' style="border-bottom:1px solid #ddd;padding-top:20rpx;">
     <view class="list-content">
       <!--<a href="/newexcavator/mobile/detail?id=2282#mp.weixin.qq.com">-->
-      <view style="margin-left:50rpx;width:200rpx">
-        <image wx:if="{{item.mi.isNew == 1}}"  src="/images/new.png" style="width:40rpx;position:absolute" mode='widthFix'></image>
-        <image style="width:200rpx;height:140rpx" src="https://app.wayouquan.com/newexcavator/img/{{item.mi.cover_path}}"/>
+      <view style="margin-left:20rpx;width:150rpx;">
+        <image wx:if="{{item.mi.isNew == 1}}"  src="/images/new.png" style="width:80rpx;margin-left:70rpx;position:absolute" mode='widthFix'></image>
+        <image style="width:150rpx;height:140rpx" src="https://app.wayouquan.com/newexcavator/img/{{item.mi.cover_path}}"/>
         </view>
-            <view style="margin-left:30rpx;word-break:break-all;width:470rpx" class="listR1">
+            <view style="margin-left:20rpx;word-break:break-all;width:470rpx" class="listR1">
               <text class="h4">{{item.mi.brand_name+'_'+item.mi.version_name+'【'+item.mi.buy_date+'年】'}}</text>
-              <text class="time">{{item.mi.used_time}}小时</text>
-              <text class="price">{{item.mi.price}}万</text>              
-              <text class="address">{{item.mi.p_name}} {{item.mi.c_name}}</text>
+              <text class="time">{{item.mi.used_time}}小时</text>             
+              <text class="address">{{item.mi.p_name}} {{item.mi.c_name}} {{item.mi.create_time}}</text>
+
               </view>
+            <view class="time0">
+               <text class="price">￥{{item.mi.price}}万</text> 
+            </view>
             <!--<div class="clr"></div>-->
     <!--</a>-->
   </view>
-              <view class="time0">
-               <text>{{item.mi.create_time}}</text>
-            </view>
+
 </view>
 
 

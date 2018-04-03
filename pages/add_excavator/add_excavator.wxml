@@ -1,59 +1,68 @@
 <!--pages/add_excavator/add_excavator.wxml-->
 <form bindsubmit="formSubmit" >
+
 <view style="display:{{disflag1}}">
+<view class="top-title">车辆信息</view>
 <view class="add-view">
-  <text class="add-text">车辆信息：</text>
+  <text class="add-text">类型</text>
   <picker name="excavator_type" bindchange="bindTypeChange" range-key="name" value="{{et_value}}"   range="{{et}}">
         <view class="picker radio-text">
         {{et_name}}
         </view>
     </picker>
+    <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 <view class="add-view">
-  <text class="add-text"> </text>
+  <text class="add-text">品牌</text>
   <picker name="excavator_brand" bindchange="bindBrandChange" range-key="name" value="{{brand_value}}"   range="{{brandList}}">
         <view class="picker radio-text">
         {{brand_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
-<view class="add-view">
-  <text class="add-text"> </text>
+<view class="add-view-b">
+  <text class="add-text">型号</text>
   <picker name="excavator_version" bindchange="bindVersionChange" range-key="name" value="{{version_value}}"  range="{{versionList}}">
         <view class="picker radio-text">
         {{version_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 
+<view style="background:#f3f3f3;height:40rpx"></view>
+
 <view class="add-view">
-  <text class="add-text">使用时间：</text>
+  <text class="add-text">使用时间</text>
   <input class="input-text" name="used_time" type='number' placeholder="单位:小时" bindinput="setUsedTime"/>
-  <text>小时</text>
+  
 </view>
 
 <view class="add-view">
-  <text class="add-text">出售价格：</text>
+  <text class="add-text">出售价格</text>
   <input class="input-text" name="price" type='digit' placeholder="单位:万元" bindinput='setPrice'/>
-  <text>万元</text>
+  
 </view>
 
 <view class="add-view">
-  <text class="add-text">停放地址：</text>
+  <text class="add-text">停放地址</text>
   <picker name="province"  bindchange="bindProvinceChange" range-key="name"   range="{{cs}}">
         <view class="picker radio-text">
         {{cs_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 
 <view class="add-view">
-  <text class="add-text"> </text>
+  <text class="add-text">停放城市</text>
   <picker name="city" bindchange="bindCityChange" range-key="name" value="{{city_value}}"  range="{{cityList}}">
         <view class="picker radio-text">
         {{city_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 <view style="margin-top:40rpx">
   <button catchtap='nextStep' class="nbutton">下一步</button>
@@ -61,11 +70,16 @@
 </view>
 
 <view style="display:{{disflag2}}">
-<view class="add-view">
-  <text class="add-text">合格证：</text>
-  <radio-group name="qualified" >
+<view class="add-view" style="margin-top:40rpx">
+  
+  <text class="add-text">合格证</text>
+  <radio-group name="qualified" class="radio-g">
+  <view>
     <radio  value="1"  id="li"/><label for="li" class="r-text">有</label>
+    </view>
+    <view>
     <radio  value="0" checked id="wen"/><label for="wen" class="r-text">无</label>
+    </view>
       </radio-group> 
 </view>
 <!--隐藏可议价-->
@@ -79,86 +93,95 @@
 <!-- 隐藏有无大修,设置默认值 -->
 <input name="fixed" value="0" hidden='hidden'/>
 <view class="add-view">
-  <text class="add-text">购买日期：</text>
+  <text class="add-text">购买日期</text>
     <picker name="buy_date" mode="date" value="{{date}}"  bindchange="bindDateChange">
     <view class="radio-text">
       {{date}}
     </view>
   </picker>
+      <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 
-<view class="add-view">
-  <text class="add-text">设备序列号：</text>
+<view class="add-view-b">
+  <text class="add-text">设备序列号</text>
   <input class="radio-text" name="code_no"  placeholder="可以为空"/>
   
 </view>
-
+<view style="height:40rpx"></view>
 <view class="add-view">
-  <text class="add-text">发票：</text>
-  <radio-group name="receipt" >
+  <text class="add-text">发票</text>
+  <radio-group name="receipt"  class="radio-g">
+  <view>
     <radio  value="1"  id="li1"/><label for="li1" class="r-text">有</label>
+    </view>
+    <view>
     <radio  value="0" checked id="wen1"/><label for="wen1" class="r-text">无</label>
+    </view>
       </radio-group> 
 </view>
 
 <view class="add-view">
-  <text class="add-text">原车车况：</text>
+  <text class="add-text">原车车况</text>
   <picker name="old_level"  bindchange="bindOldLevelChange" range-key="name"   range="{{ol}}">
         <view class="picker radio-text">
         {{ol_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 <view class="add-view">
-  <text class="add-text">原车用途：</text>
+  <text class="add-text">原车用途</text>
   <picker name="use"  bindchange="bindUseChange" range-key="name"   range="{{use}}">
         <view class="picker radio-text">
         {{use_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 <view class="add-view">
-  <text class="add-text">当前状态：</text>
+  <text class="add-text">当前状态</text>
   <picker name="cus_level"  bindchange="bindCurrentStatusChange" range-key="name"   range="{{cus}}">
         <view class="picker radio-text">
         {{cus_name}}
         </view>
     </picker>
+        <image src="/images/Path.png" style="width:16rpx" mode='widthFix'></image>
 </view>
 
+<view class="top-title">产品描述</view>
 <view class="add-textarea-view">
-  <text class="add-text">产品描述：</text>
+  
   <textarea class="radio-arae" maxlength="500" name="description" placeholder="简单的描述下你的机械,500字以内"></textarea>
   
 </view>
 
 <view class="footButton">
-  <button catchtap='preStep' class="nbutton">上一步</button>
-  <button catchtap='nextStep2' class="nbutton">下一步</button>
+  <button catchtap='preStep' class="nbutton-l">上一步</button>
+  <button catchtap='nextStep2' class="nbutton-r">下一步</button>
 </view>
 </view>
 
 <view style="display:{{disflag3}}">
-<view class="add-view">
-  <text class="add-text">联系人：</text>
+<view class="add-view" style="margin-top:40rpx">
+  <text class="add-text">联系人</text>
   <input class="radio-text" name="link_name" value="{{user.name}}"/>
   
 </view>
 <view class="add-view">
-  <text class="add-text">电话号码：</text>
+  <text class="add-text">电话号码</text>
   <input class="radio-text" name="phone" value="{{user.cell_phone}}"/>
   
 </view>
 
-<view class="pic-select">选择照片</view>
+<view class="top-title">选择照片(仅支持JPG/JPEG格式文件)</view>
 
-<text class="pic-select-dec">仅支持JPG/JPEG格式文件</text>
+<!--<text class="pic-select-dec">仅支持JPG/JPEG格式文件</text>
 
 <view class="pic-select-title">上传进度：</view>
 
 <view class="out-bar"><view class="inner-bar" style="width:{{inwidth}}%"></view></view>
 
-<view class="pic-select-content">图片上传：</view>
+<view class="pic-select-content">图片上传：</view>-->
 
 <view class="img-bar">
 
@@ -169,7 +192,7 @@
     <image  src="https://app.wayouquan.com/newexcavator/assets/images/search.jpg" style="width:140rpx;height:140rpx;"></image>
   </view>-->
 
-  <view wx:for="{{files}}" style="margin-left:82rpx;margin-top:20rpx;z-index:1">
+  <view wx:for="{{files}}" style="margin-left:30rpx;margin-top:20rpx;z-index:1">
     <image class="del" src="https://app.wayouquan.com/newexcavator/assets/images/imgDel.png" style="width:40rpx" mode='widthFix' data-index="{{index}}" catchtap='delImg'></image>
     <image class="first"  src="https://app.wayouquan.com/newexcavator/assets/images/first.png" style=";z-index:2;width:140rpx;display:{{tag==index?'block':'none'}}" mode='widthFix'></image>
     <image data-index="{{index}}" catchtap='setFirst' src="{{item}}" style="width:140rpx;height:140rpx;"></image>
@@ -181,8 +204,9 @@
 
 
 <view class="footButton">
-  <button catchtap='preStep2' class="nbutton">上一步</button>
-  <button form-type='submit' class="nbutton">发布</button>
+  <button catchtap='preStep2' class="nbutton-l">上一步</button>
+  <button form-type='submit' class="nbutton-r">发布</button>
 </view>
 </view>
+
 </form>

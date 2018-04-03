@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import "/pages/bottom/bottom.wxss";
+
 .index-title{
   height:60rpx;
   background:#1da1ff;

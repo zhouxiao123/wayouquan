@@ -15,7 +15,9 @@
     "pages/jubao/jubao",
     "pages/my_excavator/my_excavator",
     "pages/ask/ask",
-    "pages/ask_detail/ask_detail"
+    "pages/ask_detail/ask_detail",
+    "pages/bottom/bottom",
+    "pages/change_com/chang_com"
   ],
   "window": {
     "backgroundTextStyle": "light",

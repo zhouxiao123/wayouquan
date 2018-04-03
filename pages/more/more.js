@@ -76,7 +76,7 @@ Page({
           data: res.data,
           city:city,
           brand: brand,
-          type_name: options.type == null ? '全部机械' : options.type == 1 ? '挖掘机' : '装载机',
+          type_name: options.type == 1 ? '挖掘机' : options.type == 2 ? '装载机' : '全部机械',
           city_name: res.data.city_name != null ? res.data.city_name : '全部地区',
           brand_name: res.data.exb_name != null ? res.data.exb_name : '全部品牌'
         })
@@ -254,6 +254,21 @@ Page({
       url: '/pages/home/home',
     })
   }, toPerson: function () {
+    wx.navigateTo({
+      url: '/pages/person/person',
+    })
+  },
+  mainIndex: function () {
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
+  },
+  typeIndex: function () {
+    wx.reLaunch({
+      url: '/pages/more/more?type=0',
+    })
+  },
+  personalIndex: function () {
     wx.navigateTo({
       url: '/pages/person/person',
     })

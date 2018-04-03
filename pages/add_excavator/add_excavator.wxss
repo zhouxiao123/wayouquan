@@ -1,75 +1,127 @@
 /* pages/add_excavator/add_excavator.wxss */
+page{
+  background:#f3f3f3
+}
 .add-view{
   display:flex;
-  margin-left:40rpx;
+  padding-left:50rpx;
   font-family: "微软雅黑";
   font-size:32rpx;
   color: #545253;
-  margin-top:20rpx;
-  align-items: center
+  padding-top:20rpx;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ddd;
+  height:50rpx;
+  background:#fff
+}
+.add-view-b{
+    display:flex;
+  padding-left:50rpx;
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  padding-top:20rpx;
+  align-items: center;
+  padding-bottom: 20rpx;
+background:#fff;
+  height:50rpx
 }
 
+.top-title{
+  padding-left:50rpx;
+  font-size:28rpx;
+padding-top:20rpx;
+padding-bottom:20rpx;
+  color:#aaa;
+  font-family: 微软雅黑;
+
+}
 .add-textarea-view{
   display:flex;
-  margin-left:40rpx;
+
   font-family: "微软雅黑";
   font-size:32rpx;
   color: #545253;
-  margin-top:20rpx;
   align-items: flex-start
 }
 .add-text{
-  width:200rpx;
-  text-align: right
-}
-.radio-text{
-  border: 1px solid #545253;
-  width:300rpx;
-  text-align: center;
-  background:#f3f3f3
+  width:180rpx;
+ margin-right:20rpx
 }
 
+.radio-text{
+  width:460rpx;
+
+}
+.radio-g{
+  display: flex;
+  width:380rpx;
+  align-items: center;
+justify-content: space-between
+}
 .input-text{
-  border: 1px solid #545253;
+  
   width:250rpx;
-  text-align: center;
-  background:#f3f3f3
+
+
 }
 .nbutton{
-  width: 200rpx;
-    height: 60rpx;
+  width: 680rpx;
+    height: 80rpx;
     background: #1ca1fe;
     color: #fff;
     border-radius: 10rpx;
-    font-size:28rpx;
-    line-height:60rpx
+    font-size:32rpx;
+    line-height:80rpx
+}
+.nbutton-l{
+  width: 330rpx;
+    height: 80rpx;
+    background: #1ca1fe;
+    background: #fff;
+    color:#545253;
+    border-radius: 10rpx;
+    font-size:32rpx;
+    line-height:80rpx
+}
+.nbutton-r{
+  width: 330rpx;
+    height: 80rpx;
+    background: #1ca1fe;
+    color: #fff;
+    border-radius: 10rpx;
+    font-size:32rpx;
+    line-height:80rpx
 }
 .footButton{
   margin-top:40rpx;
   display:flex;
-  align-items: center
+  align-items: center;
+  
 }
 .r-text{
     font-family:微软雅黑;
   font-size:28rpx;
-  margin-right:40rpx
+  margin-left:10rpx
+  
 }
 .radio-arae{
-  border: 1px solid #545253;
-  width:300rpx;
-  background:#f3f3f3;
-  height:250rpx;
+  padding:20rpx 50rpx 20rpx 50rpx;
+  width:750rpx;
+  background:#fff;
+  height:150rpx;
   
 }
 .pic-select{
       font-family:微软雅黑;
-      margin-top:40rpx;
+      margin-top:30rpx;
   font-size:32rpx;
       color: #7d7b7b;
     height: 40rpx;
     line-height: 40rpx;
-    padding-left: 10rpx;
-    border-bottom: 1px solid #aaaaaa;
+    margin-left: 50rpx;
+
 }
 .pic-select-dec{
         font-family:微软雅黑;
@@ -107,14 +159,17 @@
 .img-bar{
   display:flex;
   align-items: center;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  background:#fff;
+  padding-bottom:20rpx;
+  padding-left:20rpx;
 }
 .pickfileDiv{
   display:inline-block;
       width: 140rpx;
     height: 140rpx;
     margin-top:20rpx;
-    margin-left:82rpx;
+    margin-left:30rpx;
     text-align: center;
     line-height: 140rpx;
     border: 1px dashed #ccc;
