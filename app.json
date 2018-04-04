@@ -18,7 +18,11 @@
     "pages/ask_detail/ask_detail",
     "pages/bottom/bottom",
     "pages/change_com/chang_com",
-    "pages/person_info/person_info"
+    "pages/person_info/person_info",
+    "pages/change_com_detail/change_com_detail",
+    "pages/my_change_com/my_change_com",
+    "pages/my_change_com_detail/my_change_com_detail",
+    "pages/adv/adv"
   ],
   "window": {
     "backgroundTextStyle": "light",

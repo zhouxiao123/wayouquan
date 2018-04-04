@@ -1,0 +1,43 @@
+<!--pages/change_com_detail/change_com_detail.wxml-->
+<view class="detail_content">
+  <image src="https://app.wayouquan.com/newexcavator/img/{{co.path}}" style="width:600rpx" mode='widthFix'></image>
+
+
+  <view class="add-view-b">
+    <text class="detail_desc_text_t">{{co.name}}</text>
+  </view>
+
+  <view class="add-view-c">
+    <text class="detail_desc_text">{{co.description}}</text>
+  </view>
+
+  <view class="add-view">
+    <text class="add-text-d">所需积分</text>
+    <input class="input-text-d" disabled='disabled'  type='number' value="{{co.point}}"/> 
+  </view>
+
+  <view class="add-view">
+    <text class="add-text-d">当前积分</text>
+    <input class="input-text-d" disabled='disabled'  type='number' value="{{user.point}}"/> 
+  </view>
+
+<form bindsubmit="formSubmit" wx:if="{{user.point > co.point || user.point==co.point}}" >
+  <view class="add-view">
+    <text class="add-text">用户姓名</text>
+    <input class="input-text"   name="name" value="{{user.name}}"/> 
+  </view>
+
+  <view class="add-view">
+    <text class="add-text">联系电话</text>
+    <input class="input-text"  name="phone"  type='number' value="{{user.cell_phone}}"/> 
+  </view>
+
+  <view class="add-view">
+    <text class="add-text">收货地址</text>
+    <input class="input-text"  name="address"   placeholder='填写地址'/> 
+  </view>
+  <view style="margin-top:40rpx">
+  <button form-type='submit' class="nbutton">兑换</button>
+</view>
+</form>
+</view>

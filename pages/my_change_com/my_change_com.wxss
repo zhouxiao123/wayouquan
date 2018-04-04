@@ -1,0 +1,88 @@
+/* pages/my_change_com/my_change_com.wxss */
+page{
+  background:#f3f3f3
+}
+.index-title{
+  height:60rpx;
+  background:#1da1ff;
+  display:flex;
+  justify-content: center;
+  align-items: center
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.tag-list{
+
+ 
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.tag-view{
+  text-align: center;
+
+    display:flex;
+    width:375rpx;
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+  flex-direction:column;
+    font-family:黑体;
+  color:#4b4c4c;
+  font-size:34rpx
+}
+
+.on{
+  background:#f3f3f3
+}
+.t-on{
+  color:#4b4c4c;
+}
+
+.tag-list2{
+
+  
+  display: flex;
+  justify-content: space-between;
+  
+}
+.tag-view2{
+    display:flex;
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+    padding-left:40rpx;
+    padding-right:40rpx;
+  flex-direction:column;
+    font-family:黑体;
+  color:#4b4c4c;
+  font-size:34rpx
+}
+.t-right{
+  color:#888
+}
+.index-list{
+  width:360rpx;
+  margin-left:10rpx;
+background:#fff;
+  display:inline-block;
+  margin-bottom:10rpx
+}

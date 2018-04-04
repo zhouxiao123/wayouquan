@@ -10,7 +10,7 @@
     </swiper-item>-->
 
     <swiper-item wx:for="{{adv}}">
-      <image src="https://app.wayouquan.com/newexcavator/img/{{item.img_path}}" class="slide-image" style="width:100%;" mode="widthFix"/>
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.img_path}}" class="slide-image" style="width:100%;" data-url="{{item.img_url}}" catchtap='advUrl' mode="widthFix"/>
     </swiper-item>
 
    

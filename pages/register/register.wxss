@@ -1,4 +1,7 @@
 /* pages/register/register.wxss */
+page{
+  background:#f3f3f3
+}
 .register-title{
   height:60rpx;
   background:#1da1ff;
@@ -11,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom:20rpx
 }
 
 .userinfo-avatar {
@@ -21,7 +25,7 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #999;
 }
 .input-content{
         display: block;
@@ -34,12 +38,30 @@
     border-radius: 10rpx;
     font-size:32rpx
 }
+.add-view{
+  display:flex;
+  padding-left:50rpx;
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  padding-top:20rpx;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ddd;
+  height:50rpx;
+  background:#fff
+}
+.add-text{
+  width:180rpx;
+ margin-right:20rpx
+}
 .nbutton{
-  width: 300rpx;
-    height: 60rpx;
+  width: 680rpx;
+    height: 80rpx;
     background: #1ca1fe;
     color: #fff;
     border-radius: 10rpx;
-    font-size:28rpx;
-    line-height:60rpx
+    font-size:32rpx;
+    line-height:80rpx;
+    margin-bottom:40rpx
 }

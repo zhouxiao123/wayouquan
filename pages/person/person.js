@@ -275,5 +275,10 @@ Page({
    wx.navigateTo({
      url: '/pages/person_info/person_info',
    })
+ },
+ toMyChange:function(){
+   wx.navigateTo({
+     url: '/pages/my_change_com/my_change_com',
+   })
  }
 })

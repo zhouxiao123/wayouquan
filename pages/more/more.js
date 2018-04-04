@@ -7,6 +7,9 @@ Page({
   data: {
     tag:-1,
     typelist: [{ id: 0, name: '全部' }, { id: 1, name: '挖掘机' }, { id: 2, name:'装载机'}],
+    order: ['默认排序' , '价格从低到高' , '价格从高到低','年限从近到远','年限从远到近' ],
+    order_id:0,
+    order_name:'默认排序',
     type_name:'',
     type_id:0,
     brand:[],
@@ -137,6 +140,13 @@ Page({
       tag: -1
     })
     this.search();
+  }, bindOrderChange:function(e){
+    this.setData({
+      order_name: this.data.order[e.detail.value],
+      order_id: e.detail.value,
+      tag: -1
+    })
+    this.search();
   },
   setValue: function (event) {
     this.setData({
@@ -159,7 +169,8 @@ Page({
         city_name: this.data.city_name,
         city_id: this.data.city_id,
         exb_name: this.data.brand_name,
-        exb_id: this.data.brand_id
+        exb_id: this.data.brand_id,
+        order_id: this.data.order_id
       },
       success: function (res) {
         //console.log(res.data)
@@ -207,7 +218,8 @@ Page({
         city_name: this.data.city_name,
         city_id: this.data.city_id,
         exb_name: this.data.brand_name,
-        exb_id: this.data.brand_id
+        exb_id: this.data.brand_id,
+        order_id: this.data.order_id
       },
       success: function (res) {
         //console.log(res.data)

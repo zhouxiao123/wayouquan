@@ -126,5 +126,9 @@ Page({
       }
     })
 
+  }, toDetail:function(e){
+      wx.navigateTo({
+        url: '/pages/change_com_detail/change_com_detail?id='+e.currentTarget.dataset.id,
+      })
   }
 })

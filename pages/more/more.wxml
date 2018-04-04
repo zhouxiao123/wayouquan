@@ -39,6 +39,31 @@
     </view>
   </view>
 
+  <!--<view class="tag-list">
+    <view class="tag-view" data-current="0" catchtap="swichNav" >
+      <picker name="type"  bindchange="bindTypeChange" range-key="name"   range="{{typelist}}">
+        <view class="picker radio-text">
+        <text>{{type_name}}</text><image style="margin-left:10rpx;width:20rpx" mode='widthFix' src="/images/Arrow.png"/>
+        </view>
+      </picker>
+  
+    </view> 
+    <view class="tag-view" data-current="1" catchtap="swichNav" >
+      <picker name="city" range-key="name" bindchange="bindCityChange"  range="{{city}}">
+        <view class="picker radio-text">
+        <text>{{city_name}}</text><image style="margin-left:10rpx;width:20rpx" mode='widthFix' src="/images/Arrow.png"/>
+        </view>
+      </picker>
+    </view>
+    <view class="tag-view-e" data-current="2" catchtap="swichNav" >
+      <picker name="order"  bindchange="bindOrderChange"  range="{{order}}" >
+        <view class="picker radio-text">
+        <text>{{order_name}}</text><image style="margin-left:10rpx;width:20rpx" mode='widthFix' src="/images/Arrow.png"/>
+        </view>
+      </picker>
+    </view>
+  </view>-->
+
 
 
   <view style="background:#fff;margin-top:20rpx;padding-bottom:100rpx">

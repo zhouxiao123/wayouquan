@@ -54,7 +54,7 @@
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
       </view>
 
-      <view class="menue-center">
+      <view catchtap='toMyChange' class="menue-center">
         <text class="menue-text">我兑换的商品</text>
         <image src="https://app.wayouquan.com/newexcavator/assets/images/next.gif" class="menue-icon" mode='widthFix'></image>
       </view>
@@ -71,13 +71,13 @@
 	<a href="http://www.sojump.com/jq/5058621.aspx">【提建议送挖掘机模型】</a>
   </view>-->  
   <view class="bottomtext">
-   	客服电话：028-85379570
+   	客服电话：028-66888345
   </view>
   <view class="bottomtext">
    	QQ:968276
   </view>
   <view class="bottomtext">
-   	 微信:wjjjy666
+   	 微信:wjjy789
   </view>
   <view class="bottomtext">
    	 成都贝格畅斯科技有限公司

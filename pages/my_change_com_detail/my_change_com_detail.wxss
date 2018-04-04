@@ -1,0 +1,110 @@
+/* pages/my_change_com_detail/my_change_com_detail.wxss */
+page{
+  background:#f3f3f3
+}
+.detail_content{
+  margin-top:40rpx;
+  text-align: center
+}
+.detail_desc{
+  margin-top:20rpx
+
+}
+.detail_desc_text_t{
+  display:block;
+  font-size: 42rpx;
+  color:#999;
+  
+}
+
+.detail_desc_text{
+  text-indent: 40rpx;
+  margin-top:20rpx;
+  text-align: left;
+  margin-left:80rpx;
+  margin-right:80rpx;
+  display:block;
+  color:#999;
+  font-size: 26rpx;
+  word-break:break-all;
+}
+
+.add-view{
+  display:flex;
+  padding-left:50rpx;
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  padding-top:20rpx;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ddd;
+  height:50rpx;
+  background:#fff
+}
+.add-view-b{
+    display:flex;
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  padding-top:20rpx;
+  align-items: center;
+  justify-content: center;
+    border-bottom: 1px solid #ddd;
+  padding-bottom: 20rpx;
+background:#fff;
+  height:50rpx;
+}
+
+.add-view-c{
+    display:flex;
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  padding-top:20rpx;
+  align-items: center;
+    border-bottom: 1px solid #ddd;
+  padding-bottom: 20rpx;
+background:#fff;
+  height:50rpx
+}
+
+.add-textarea-view{
+  display:flex;
+
+  font-family: "微软雅黑";
+  font-size:32rpx;
+  color: #545253;
+  align-items: flex-start
+}
+.add-text{
+  width:180rpx;
+ margin-right:20rpx
+}
+
+.add-text-d{
+  width:180rpx;
+ margin-right:20rpx;
+ color:#999
+}
+
+.input-text{
+  
+  width:250rpx;
+
+
+}
+.input-text-d{
+  width:450rpx;
+  color:#999
+}
+.nbutton{
+  width: 680rpx;
+    height: 80rpx;
+    background: #1ca1fe;
+    color: #fff;
+    border-radius: 10rpx;
+    font-size:32rpx;
+    line-height:80rpx;
+    margin-bottom:40rpx
+}

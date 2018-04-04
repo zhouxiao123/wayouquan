@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.0",
+	"libVersion": "1.7.1",
 	"appid": "wxc30890405ed1a8b3",
 	"projectname": "wayouquan",
 	"condition": {
@@ -108,6 +108,30 @@
 					"name": "个人中心",
 					"pathName": "pages/person_info/person_info",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "兑换详情",
+					"pathName": "pages/change_com_detail/change_com_detail",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/register/register",
+					"query": ""
+				},
+				{
+					"id": 15,
+					"name": "我的兑换",
+					"pathName": "pages/my_change_com/my_change_com",
+					"query": ""
+				},
+				{
+					"id": 16,
+					"name": "我的兑换详情",
+					"pathName": "pages/my_change_com_detail/my_change_com_detail",
+					"query": "id=9"
 				}
 			]
 		}

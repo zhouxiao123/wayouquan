@@ -1,0 +1,37 @@
+<!--pages/my_change_com_detail/my_change_com_detail.wxml-->
+<view class="detail_content">
+  <image src="https://app.wayouquan.com/newexcavator/img/{{o.co_path}}" style="width:600rpx" mode='widthFix'></image>
+
+
+  <view class="add-view-b">
+    <text class="detail_desc_text_t">{{o.co_name}}</text>
+  </view>
+
+  <view class="add-view-c">
+    <text class="detail_desc_text">{{o.co_description}}</text>
+  </view>
+
+  <view class="add-view">
+    <text class="add-text-d">所需积分</text>
+    <input class="input-text-d" disabled='disabled'  type='number' value="{{o.co_point}}"/> 
+  </view>
+
+  <view class="add-view">
+    <text class="add-text-d">兑换人</text>
+    <input class="input-text-d" disabled='disabled'   value="{{o.name}}"/> 
+  </view>
+    <view class="add-view">
+    <text class="add-text-d">联系方式</text>
+    <input class="input-text-d" disabled='disabled'   value="{{o.phone}}"/> 
+  </view>
+      <view class="add-view">
+    <text class="add-text-d">收货地址</text>
+    <input class="input-text-d" disabled='disabled'   value="{{o.address}}"/> 
+  </view>
+        <view class="add-view">
+    <text class="add-text-d">兑换时间</text>
+    <input class="input-text-d" disabled='disabled'   value="{{o.create_time}}"/> 
+  </view>
+  
+</view>
+

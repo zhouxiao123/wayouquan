@@ -125,5 +125,11 @@ Page({
     wx.navigateTo({
       url: '/pages/person/person',
     })
+  }, advUrl:function(e){
+      if(e.currentTarget.dataset.url.length!=0){
+        wx.navigateTo({
+          url: '/pages/adv/adv?url=' + encodeURIComponent(e.currentTarget.dataset.url),
+        })
+      }
   }
 })

@@ -9,12 +9,12 @@
     <view class="center-tag" bindtap="typeIndex">
       <image wx:if="{{condition==2}}" src="/images/navbar_2_choosed.png" background-size="cover" style="display:block;width:48rpx;height:48rpx"/>
             <image wx:if="{{condition!=2}}" src="/images/navbar_2_normal.png" background-size="cover" style="display:block;width:48rpx;height:48rpx" />
-      <text class="bottom-text mt10">分类</text>
+      <text class="bottom-text mt10">购买</text>
     </view>
     <view class="right-tag" bindtap="personalIndex">
       <image wx:if="{{condition==3}}" src="/images/navbar_3_choosed.png" background-size="cover" style="width:48rpx;height:48rpx"/>
       <image wx:if="{{condition!=3}}" src="/images/navbar_3_normal.png" background-size="cover" style="width:48rpx;height:48rpx"/>
-      <text class="bottom-text">我的</text>
+      <text class="bottom-text">出售</text>
     </view>
   </view>
 </template>
