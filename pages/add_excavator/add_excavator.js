@@ -541,6 +541,7 @@ Page({
               countA++
               that.data.files.push(app.globalData.baseUrl + "img/temp/" + res.data.replace(".","_S."))
               that.data.filenames.push(res.data)
+              console.log(that.data.filenames)
               that.setData({
                 files: that.data.files,
                 filenames: that.data.filenames

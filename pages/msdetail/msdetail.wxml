@@ -13,9 +13,9 @@
 
 </view>-->
 <swiper indicator-dots="true"
-  autoplay="true" interval="3000" duration="500" style="height:420rpx">
+  autoplay="true" interval="3000" duration="500" style="height:420rpx" >
     <swiper-item wx:for="{{m.mp}}">
-      <image src="https://app.wayouquan.com/newexcavator/img/{{item.path}}" class="slide-image" style="width:750rpx;height:420rpx"/>
+      <image src="https://app.wayouquan.com/newexcavator/img/{{item.path}}" class="slide-image" style="width:750rpx;height:420rpx" data-current="{{index}}" catchtap='bigImg'/>
     </swiper-item>
 
    

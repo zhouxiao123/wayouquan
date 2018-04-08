@@ -16,6 +16,7 @@ Page({
   own:0,
   askList:[],
   user: {},
+  urlList:[],
   //下拉加载
   hasMore: true,
   pageOffset: 0,
@@ -133,13 +134,15 @@ Page({
         }
         //res.data.m.buy_date == null ? '未知' : transDate(res.data.m.buy_date,true)
         res.data.m.create_time = transDate(res.data.m.create_time, true)
-
+        var imgurl = [];
         for (var i in res.data.m.mp) {
+          imgurl.push('https://app.wayouquan.com/newexcavator/img/'+res.data.m.mp[i].path)
           res.data.m.mp[i].path = res.data.m.mp[i].path.replace('.', '_S.')
         }
         that.setData({
           adv: res.data.adv,
-          m: res.data.m
+          m: res.data.m,
+          urlList:imgurl
         })
 
         wx.request({
@@ -476,6 +479,13 @@ Page({
         wx.hideLoading()
       }
     }
+  },
+  bigImg:function(e){
+    //console.log(this.data.urlList)
+    wx.previewImage({
+      current: this.data.urlList[e.currentTarget.dataset.current], // 当前显示图片的http链接
+      urls: this.data.urlList // 需要预览的图片http链接列表
+    })
   }
 })
 function transDate(mescStr,flag) {
